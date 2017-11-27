@@ -20,9 +20,12 @@ export default {
       text: 'Something is wrong',
     },
   },
+  withLoading: {
+    isLoading: true,
+  },
   withHandleChanged: (action) => ({
-    handleChanged: (event) => {
-      action('handleChanged')(event.target.value);
+    handleChanged: (value) => {
+      action('handleChanged')(value);
     },
   }),
   withOnFocus: (action) => ({

@@ -51,3 +51,13 @@ export const message = (action) => (
     {...Props.withOnBlur(action)}
   />
 );
+
+export const loading = (action) => (
+  <Text
+    {...Props.withPlaceholder}
+    {...Props.withHandleChanged(action)}
+    {...Props.withOnFocus(action)}
+    {...Props.withOnBlur(action)}
+    {...Props.withLoading}
+  />
+);

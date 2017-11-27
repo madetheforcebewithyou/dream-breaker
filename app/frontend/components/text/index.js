@@ -70,12 +70,17 @@ export default class Text extends React.Component {
 
   get [_handleChanged]() {
     return (event) => {
-      this.setState({ value: event.target.value });
-      const { handleChanged } = this.props;
+      const value = event.target.value;
 
-      if (_.isFunction(handleChanged)) {
-        handleChanged(event);
-      }
+      this.setState({
+        value,
+      }, () => {
+        const { handleChanged } = this.props;
+
+        if (_.isFunction(handleChanged)) {
+          handleChanged(value);
+        }
+      });
     };
   }
 
@@ -85,23 +90,29 @@ export default class Text extends React.Component {
 
   get [_handleInputFocus]() {
     return (event) => {
-      this.setState({ inputStatus: event.type });
-      const { onFocus } = this.props;
+      this.setState({
+        inputStatus: event.type,
+      }, () => {
+        const { onFocus } = this.props;
 
-      if (_.isFunction(onFocus)) {
-        onFocus(event);
-      }
+        if (_.isFunction(onFocus)) {
+          onFocus(event);
+        }
+      });
     };
   }
 
   get [_handleInputBlur]() {
     return (event) => {
-      this.setState({ inputStatus: event.type });
-      const { onBlur } = this.props;
+      this.setState({
+        inputStatus: event.type,
+      }, () => {
+        const { onBlur } = this.props;
 
-      if (_.isFunction(onBlur)) {
-        onBlur(event);
-      }
+        if (_.isFunction(onBlur)) {
+          onBlur(event);
+        }
+      });
     };
   }
 
