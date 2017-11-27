@@ -1,0 +1,29 @@
+$an-font-path: "./avenir-next/fonts";
+@import "./avenir-next/styles.scss";
+$and-font-path: "./avenir-next-demi/fonts";
+@import "./avenir-next-demi/styles.scss";
+$anm-font-path: "./avenir-next-medium/fonts";
+@import "./avenir-next-medium/styles.scss";
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
+$sl-font-path: "./streamline-24px/";
+@import "./streamline-24px/styles.scss";
+$slf-font-path: "./streamline-24px-filled-in/";
+@import "./streamline-24px-filled-in/styles.scss";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Avenir Next" !important;
+  overflow-x: hidden;
+  input::-ms-clear {
+    display: none !important;
+  }
+
+  background-color: #f2f0f4;
+}

@@ -1,0 +1,107 @@
+@import './../../stylesheets/main.global';
+
+.dream-breaker-text {
+  .dream-breaker-input-warnmsg {
+    color: $danger-red;
+    font-size: 12px;
+    top: 37px;
+    left: 0px;
+  }
+
+  .dream-breaker-input-group {
+    position: relative;
+    margin-right: 15px;
+
+    .dream-breaker-input-addon {
+      background-color: $white;
+    }
+    .dream-breaker-form-control {
+      height: 38px;
+    }
+
+    /* Focus */
+    &.dream-breaker-input-focus {
+      .dream-breaker-input-addon {
+        border-top: 1px solid $purple;
+        border-left: 1px solid $purple;
+        border-bottom: 1px solid $purple;
+        box-shadow: none;
+      }
+      .dream-breaker-icon {
+        color: $purple;
+      }
+      .dream-breaker-form-control {
+        border: 1px solid $purple;
+        box-shadow: none;
+      }
+
+      .dream-breaker-fa {
+        color: $purple;
+      }
+    }
+    /* Warn */
+    &.dream-breaker-input-warn {
+      .dream-breaker-input-addon {
+        border-top: 1px solid $danger-red;
+        border-left: 1px solid $danger-red;
+        border-bottom: 1px solid $danger-red;
+        box-shadow: none;
+      }
+      .dream-breaker-icon {
+        color: $danger-red;
+      }
+      .dream-breaker-form-control {
+        border: 1px solid $danger-red;
+        box-shadow: none;
+      }
+
+      .dream-breaker-fa {
+        color: $danger-red;
+      }
+    }
+    /* Disable */
+    &.dream-breaker-input-group-disable {
+      .dream-breaker-input-addon {
+        background-color: $black-3;
+      }
+      .dream-breaker-form-control {
+        background-color: $black-3;
+        color: $black;
+      }
+    }
+
+    .dream-breaker-fa {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      z-index: 4;
+
+      &:after {
+        content: attr(data-content);
+        font-size: 15px;
+      }
+    }
+
+    .dream-breaker-loading {
+      position: absolute;
+      z-index: 1;
+      top: 8px;
+      right: 10px;
+
+      &:after {
+        content: '';
+        -webkit-animation: Select-animation-spin 400ms infinite linear;
+        -o-animation: Select-animation-spin 400ms infinite linear;
+        animation: Select-animation-spin 400ms infinite linear;
+        width: 16px;
+        height: 16px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        border: 2px solid $black-20;
+        border-right-color: $black-80;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "bldr",
+  "name": "dream-breaker",
   "version": "1.0.0",
   "description": "",
   "contributors": [
@@ -15,7 +15,8 @@
     "eslint-precommit": "git diff --name-only --cached | grep -E \".*\\.js$\" | xargs eslint",
     "dev": "better-npm-run dev",
     "test": "better-npm-run test",
-    "build": "better-npm-run build"
+    "build": "better-npm-run build",
+    "storybook": "better-npm-run storybook"
   },
   "betterScripts": {
     "dev": {
@@ -35,14 +36,21 @@
       "env": {
         "NODE_ENV": "production"
       }
+    },
+    "storybook": {
+      "command": "start-storybook -p 7777",
+      "env": {
+        "NODE_ENV": "development"
+      }
     }
   },
   "pre-commit": [
-    "eslint-precommit",
-    "test",
-    "build"
+    "eslint-precommit"
   ],
   "devDependencies": {
+    "@storybook/addon-centered": "^3.2.16",
+    "@storybook/react": "^3.2.16",
+    "autoprefixer": "^7.1.6",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.1.1",
@@ -69,22 +77,31 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.2.2",
     "eslint-plugin-security": "^1.2.0",
+    "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-develop-server": "^0.5.2",
     "gulp-help": "^1.6.1",
     "gulp-util": "^3.0.8",
     "mocha": "^3.5.0",
+    "node-sass": "^4.7.2",
     "npm-check-updates": "^2.12.1",
     "nyc": "^11.1.0",
     "pre-commit": "^1.2.2",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.1.0",
+    "sass-loader": "^6.0.6",
     "sinon": "^3.1.0",
     "sinon-chai": "^2.12.0"
   },
   "dependencies": {
     "babel-register": "^6.24.1",
-    "express": "^4.16.2"
+    "bootstrap-sass": "^3.3.7",
+    "express": "^4.16.2",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
   }
 }
