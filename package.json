@@ -1,0 +1,90 @@
+{
+  "name": "bldr",
+  "version": "1.0.0",
+  "description": "",
+  "contributors": [
+    {
+      "name": "lala",
+      "email": "lalayueh@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "scripts": {
+    "eslint": "eslint .",
+    "eslint-fix": "eslint --fix .",
+    "eslint-precommit": "git diff --name-only --cached | grep -E \".*\\.js$\" | xargs eslint",
+    "dev": "better-npm-run dev",
+    "test": "better-npm-run test",
+    "build": "better-npm-run build"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "gulp dev",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "test": {
+      "command": "nyc mocha",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    "build": {
+      "command": "gulp build",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "pre-commit": [
+    "eslint-precommit",
+    "test",
+    "build"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-inline-environment-variables": "^0.1.1",
+    "babel-plugin-transform-remove-console": "^6.8.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "better-npm-run": "^0.1.0",
+    "chai": "^4.1.1",
+    "del": "^3.0.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.2.2",
+    "eslint-plugin-security": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-develop-server": "^0.5.2",
+    "gulp-help": "^1.6.1",
+    "gulp-util": "^3.0.8",
+    "mocha": "^3.5.0",
+    "npm-check-updates": "^2.12.1",
+    "nyc": "^11.1.0",
+    "pre-commit": "^1.2.2",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.1.0",
+    "sinon": "^3.1.0",
+    "sinon-chai": "^2.12.0"
+  },
+  "dependencies": {
+    "babel-register": "^6.24.1",
+    "express": "^4.16.2"
+  }
+}

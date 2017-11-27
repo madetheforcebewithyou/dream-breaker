@@ -1,0 +1,17 @@
+{
+  "exclude": [
+    "**/*.spec.js",
+    "**/test",
+    "test"
+  ],
+  "reporter": [
+    "text-summary",
+    "html"
+  ],
+  "require": [
+    "babel-register"
+  ],
+  "sourceMap": false,
+  "instrument": false,
+  "all": true
+}

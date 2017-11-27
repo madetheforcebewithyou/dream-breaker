@@ -1,0 +1,7 @@
+app/init.spec.js
+app/**/*.spec.js
+test/**/*.js
+--require test/setup
+--timeout 20000
+--recursive
+--require babel-register
