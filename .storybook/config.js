@@ -1,5 +1,5 @@
 import { configure } from '@storybook/react';
-import './stylesheets/main.global.scss';
+import './../app/frontend/stylesheets/main.global.scss'
 
 const req = require.context('./../app/frontend/components', true, /story\/index\.js$/);
 configure(() => {

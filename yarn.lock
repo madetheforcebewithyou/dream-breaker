@@ -181,9 +181,35 @@
   version "3.0.1"
   resolved "http://npm.s1.vynca.org/@types/inline-style-prefixer/-/inline-style-prefixer-3.0.1/8541e636b029124b747952e9a28848286d2b5bf6.tgz#8541e636b029124b747952e9a28848286d2b5bf6"
 
+"@types/node@*":
+  version "8.0.53"
+  resolved "http://npm.s1.vynca.org/@types/node/-/node-8.0.53/396b35af826fa66aad472c8cb7b8d5e277f4e6d8.tgz#396b35af826fa66aad472c8cb7b8d5e277f4e6d8"
+
 "@types/react@^16.0.18":
   version "16.0.25"
   resolved "http://npm.s1.vynca.org/@types/react/-/react-16.0.25/bf696b83fe480c5e0eff4335ee39ebc95884a1ed.tgz#bf696b83fe480c5e0eff4335ee39ebc95884a1ed"
+
+"@types/source-map@*":
+  version "0.5.2"
+  resolved "http://npm.s1.vynca.org/@types/source-map/-/source-map-0.5.2/973459e744cc7445c85b97f770275b479b138e08.tgz#973459e744cc7445c85b97f770275b479b138e08"
+
+"@types/tapable@*":
+  version "0.2.4"
+  resolved "http://npm.s1.vynca.org/@types/tapable/-/tapable-0.2.4/8181a228da46185439300e600c5ae3b3b3982585.tgz#8181a228da46185439300e600c5ae3b3b3982585"
+
+"@types/uglify-js@*":
+  version "2.6.29"
+  resolved "http://npm.s1.vynca.org/@types/uglify-js/-/uglify-js-2.6.29/521347f69e20201d218f5991ae66e10878afcf1a.tgz#521347f69e20201d218f5991ae66e10878afcf1a"
+  dependencies:
+    "@types/source-map" "*"
+
+"@types/webpack@^3.0.5":
+  version "3.8.1"
+  resolved "http://npm.s1.vynca.org/@types/webpack/-/webpack-3.8.1/20c11ea43f1ea7bb09eee4d6d633d830653e5a55.tgz#20c11ea43f1ea7bb09eee4d6d633d830653e5a55"
+  dependencies:
+    "@types/node" "*"
+    "@types/tapable" "*"
+    "@types/uglify-js" "*"
 
 abbrev@1, abbrev@^1.0.7, abbrev@~1.0.9:
   version "1.0.9"
@@ -216,7 +242,7 @@ acorn@^4.0.3:
   version "4.0.13"
   resolved "http://npm.s1.vynca.org/acorn/-/acorn-4.0.13/105495ae5361d697bd195c825192e1ad7f253787.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
-acorn@^5.0.0, acorn@^5.2.1:
+acorn@^5.0.0, acorn@^5.1.1, acorn@^5.2.1:
   version "5.2.1"
   resolved "http://npm.s1.vynca.org/acorn/-/acorn-5.2.1/317ac7821826c22c702d66189ab8359675f135d7.tgz#317ac7821826c22c702d66189ab8359675f135d7"
 
@@ -385,6 +411,10 @@ array-flatten@1.1.1:
   version "1.1.1"
   resolved "http://npm.s1.vynca.org/array-flatten/-/array-flatten-1.1.1/9a5f699051b1e7073328f2a008968b64ea2955d2.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
 
+array-flatten@^2.1.0:
+  version "2.1.1"
+  resolved "http://npm.s1.vynca.org/array-flatten/-/array-flatten-2.1.1/426bb9da84090c1838d812c8150af20a8331e296.tgz#426bb9da84090c1838d812c8150af20a8331e296"
+
 array-includes@^3.0.3:
   version "3.0.3"
   resolved "http://npm.s1.vynca.org/array-includes/-/array-includes-3.0.3/184b48f62d92d7452bb31b323165c7f8bd02266d.tgz#184b48f62d92d7452bb31b323165c7f8bd02266d"
@@ -478,7 +508,11 @@ async-foreach@^0.1.3:
   version "0.1.3"
   resolved "http://npm.s1.vynca.org/async-foreach/-/async-foreach-0.1.3/36121f845c0578172de419a97dbeb1d16ec34542.tgz#36121f845c0578172de419a97dbeb1d16ec34542"
 
-async@^1.4.0, async@~1.5:
+async-limiter@~1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/async-limiter/-/async-limiter-1.0.0/78faed8c3d074ab81f22b4e985d79e8738f720f8.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
+
+async@^1.4.0, async@^1.5.2, async@~1.5:
   version "1.5.2"
   resolved "http://npm.s1.vynca.org/async/-/async-1.5.2/ec6a61ae56480c0c3cb241c95618e20892f9672a.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
@@ -1481,7 +1515,7 @@ babel-preset-stage-3@^6.24.1:
     babel-plugin-transform-exponentiation-operator "^6.24.1"
     babel-plugin-transform-object-rest-spread "^6.22.0"
 
-babel-register@^6.24.1, babel-register@^6.26.0:
+babel-register@^6.26.0:
   version "6.26.0"
   resolved "http://npm.s1.vynca.org/babel-register/-/babel-register-6.26.0/6ed021173e2fcb486d7acb45c6009a856f647071.tgz#6ed021173e2fcb486d7acb45c6009a856f647071"
   dependencies:
@@ -1565,6 +1599,10 @@ base64-js@^1.0.2:
   version "1.2.1"
   resolved "http://npm.s1.vynca.org/base64-js/-/base64-js-1.2.1/a91947da1f4a516ea38e5b4ec0ec3773675e0886.tgz#a91947da1f4a516ea38e5b4ec0ec3773675e0886"
 
+batch@0.6.1:
+  version "0.6.1"
+  resolved "http://npm.s1.vynca.org/batch/-/batch-0.6.1/dc34314f4e679318093fc760272525f94bf25c16.tgz#dc34314f4e679318093fc760272525f94bf25c16"
+
 bcrypt-pbkdf@^1.0.0:
   version "1.0.1"
   resolved "http://npm.s1.vynca.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1/63bc5dcb61331b92bc05fd528953c33462a06f8d.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
@@ -1611,7 +1649,7 @@ bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
   resolved "http://npm.s1.vynca.org/bn.js/-/bn.js-4.11.8/2cde09eb5ee341f484746bb0309b3253b1b1442f.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
 
-body-parser@1.18.2:
+body-parser@1.18.2, body-parser@^1.18.2:
   version "1.18.2"
   resolved "http://npm.s1.vynca.org/body-parser/-/body-parser-1.18.2/87678a19d84b47d859b83199bd59bce222b10454.tgz#87678a19d84b47d859b83199bd59bce222b10454"
   dependencies:
@@ -1625,6 +1663,17 @@ body-parser@1.18.2:
     qs "6.5.1"
     raw-body "2.3.2"
     type-is "~1.6.15"
+
+bonjour@^3.5.0:
+  version "3.5.0"
+  resolved "http://npm.s1.vynca.org/bonjour/-/bonjour-3.5.0/8e890a183d8ee9a2393b3844c691a42bcf7bc9f5.tgz#8e890a183d8ee9a2393b3844c691a42bcf7bc9f5"
+  dependencies:
+    array-flatten "^2.1.0"
+    deep-equal "^1.0.1"
+    dns-equal "^1.0.0"
+    dns-txt "^2.0.2"
+    multicast-dns "^6.0.1"
+    multicast-dns-service-types "^1.1.0"
 
 boom@2.x.x:
   version "2.10.1"
@@ -1775,6 +1824,10 @@ browserslist@^2.1.2, browserslist@^2.5.1:
     caniuse-lite "^1.0.30000770"
     electron-to-chromium "^1.3.27"
 
+buffer-indexof@^1.0.0:
+  version "1.1.1"
+  resolved "http://npm.s1.vynca.org/buffer-indexof/-/buffer-indexof-1.1.1/52fabcc6a606d1a00302802648ef68f639da268c.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
+
 buffer-shims@^1.0.0:
   version "1.0.0"
   resolved "http://npm.s1.vynca.org/buffer-shims/-/buffer-shims-1.0.0/9978ce317388c649ad8793028c3477ef044a8b51.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
@@ -1867,6 +1920,10 @@ camelcase@^4.0.0, camelcase@^4.1.0:
   version "4.1.0"
   resolved "http://npm.s1.vynca.org/camelcase/-/camelcase-4.1.0/d545635be1e33c542649c69173e5de6acfae34dd.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
 
+camelize@1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/camelize/-/camelize-1.0.0/164a5483e630fa4321e5af07020e531831b2609b.tgz#164a5483e630fa4321e5af07020e531831b2609b"
+
 caniuse-api@^1.5.2:
   version "1.6.1"
   resolved "http://npm.s1.vynca.org/caniuse-api/-/caniuse-api-1.6.1/b534e7c734c4f81ec5fbe8aca2ad24354b962c6c.tgz#b534e7c734c4f81ec5fbe8aca2ad24354b962c6c"
@@ -1944,7 +2001,7 @@ check-error@^1.0.1:
   version "1.0.2"
   resolved "http://npm.s1.vynca.org/check-error/-/check-error-1.0.2/574d312edd88bb5dd8912e9286dd6c0aed4aac82.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
 
-chokidar@^1.6.1, chokidar@^1.7.0:
+chokidar@^1.6.0, chokidar@^1.6.1, chokidar@^1.7.0:
   version "1.7.0"
   resolved "http://npm.s1.vynca.org/chokidar/-/chokidar-1.7.0/798e689778151c8076b4b360e5edd28cda2bb468.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
   dependencies:
@@ -2116,7 +2173,7 @@ colors@1.0.3, colors@1.0.x:
   version "1.0.3"
   resolved "http://npm.s1.vynca.org/colors/-/colors-1.0.3/0433f44d809680fdeb60ed260f1b0c262e82a40b.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
 
-colors@~1.1.2:
+colors@^1.1.2, colors@~1.1.2:
   version "1.1.2"
   resolved "http://npm.s1.vynca.org/colors/-/colors-1.1.2/168a4701756b6a7f51a12ce0c97bfa28c084ed63.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
 
@@ -2152,6 +2209,24 @@ common-tags@^1.4.0:
 commondir@^1.0.1:
   version "1.0.1"
   resolved "http://npm.s1.vynca.org/commondir/-/commondir-1.0.1/ddd800da0c66127393cca5950ea968a3aaf1253b.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
+
+compressible@~2.0.11:
+  version "2.0.12"
+  resolved "http://npm.s1.vynca.org/compressible/-/compressible-2.0.12/c59a5c99db76767e9876500e271ef63b3493bd66.tgz#c59a5c99db76767e9876500e271ef63b3493bd66"
+  dependencies:
+    mime-db ">= 1.30.0 < 2"
+
+compression@^1.5.2, compression@^1.7.1:
+  version "1.7.1"
+  resolved "http://npm.s1.vynca.org/compression/-/compression-1.7.1/eff2603efc2e22cf86f35d2eb93589f9875373db.tgz#eff2603efc2e22cf86f35d2eb93589f9875373db"
+  dependencies:
+    accepts "~1.3.4"
+    bytes "3.0.0"
+    compressible "~2.0.11"
+    debug "2.6.9"
+    on-headers "~1.0.1"
+    safe-buffer "5.1.1"
+    vary "~1.1.2"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -2210,6 +2285,10 @@ configstore@^3.0.0, configstore@^3.1.1:
     write-file-atomic "^2.0.0"
     xdg-basedir "^3.0.0"
 
+connect-history-api-fallback@^1.3.0:
+  version "1.5.0"
+  resolved "http://npm.s1.vynca.org/connect-history-api-fallback/-/connect-history-api-fallback-1.5.0/b06873934bc5e344fef611a196a6faae0aee015a.tgz#b06873934bc5e344fef611a196a6faae0aee015a"
+
 console-browserify@^1.1.0:
   version "1.1.0"
   resolved "http://npm.s1.vynca.org/console-browserify/-/console-browserify-1.1.0/f0241c45730a9fc6323b206dbf38edc741d0bb10.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
@@ -2232,6 +2311,12 @@ content-disposition@0.5.2:
   version "0.5.2"
   resolved "http://npm.s1.vynca.org/content-disposition/-/content-disposition-0.5.2/0cf68bb9ddf5f2be7961c3a85178cb85dba78cb4.tgz#0cf68bb9ddf5f2be7961c3a85178cb85dba78cb4"
 
+content-security-policy-builder@1.1.0:
+  version "1.1.0"
+  resolved "http://npm.s1.vynca.org/content-security-policy-builder/-/content-security-policy-builder-1.1.0/d91f1b076236c119850c7dee9924bf55e05772b3.tgz#d91f1b076236c119850c7dee9924bf55e05772b3"
+  dependencies:
+    dashify "^0.2.0"
+
 content-type@~1.0.4:
   version "1.0.4"
   resolved "http://npm.s1.vynca.org/content-type/-/content-type-1.0.4/e138cc75e040c727b1966fe5e5f8c9aee256fe3b.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
@@ -2239,6 +2324,13 @@ content-type@~1.0.4:
 convert-source-map@^1.3.0, convert-source-map@^1.5.0:
   version "1.5.1"
   resolved "http://npm.s1.vynca.org/convert-source-map/-/convert-source-map-1.5.1/b8278097b9bc229365de5c62cf5fcaed8b5599e5.tgz#b8278097b9bc229365de5c62cf5fcaed8b5599e5"
+
+cookie-parser@^1.4.3:
+  version "1.4.3"
+  resolved "http://npm.s1.vynca.org/cookie-parser/-/cookie-parser-1.4.3/0fe31fa19d000b95f4aadf1f53fdc2b8a203baa5.tgz#0fe31fa19d000b95f4aadf1f53fdc2b8a203baa5"
+  dependencies:
+    cookie "0.3.1"
+    cookie-signature "1.0.6"
 
 cookie-signature@1.0.6:
   version "1.0.6"
@@ -2474,6 +2566,14 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+dasherize@2.0.0:
+  version "2.0.0"
+  resolved "http://npm.s1.vynca.org/dasherize/-/dasherize-2.0.0/6d809c9cd0cf7bb8952d80fc84fa13d47ddb1308.tgz#6d809c9cd0cf7bb8952d80fc84fa13d47ddb1308"
+
+dashify@^0.2.0:
+  version "0.2.2"
+  resolved "http://npm.s1.vynca.org/dashify/-/dashify-0.2.2/6a07415a01c91faf4a32e38d9dfba71f61cb20fe.tgz#6a07415a01c91faf4a32e38d9dfba71f61cb20fe"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "http://npm.s1.vynca.org/date-now/-/date-now-0.1.4/eaf439fd4d4848ad74e5cc7dbef200672b9e345b.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -2492,7 +2592,7 @@ debug@2.6.8:
   dependencies:
     ms "2.0.0"
 
-debug@2.6.9, debug@^2.1.1, debug@^2.1.2, debug@^2.2.0, debug@^2.6.8:
+debug@2.6.9, debug@^2.1.1, debug@^2.1.2, debug@^2.2.0, debug@^2.6.6, debug@^2.6.8:
   version "2.6.9"
   resolved "http://npm.s1.vynca.org/debug/-/debug-2.6.9/5d128515df134ff327e90a4c93f4e077a536341f.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -2619,6 +2719,10 @@ detect-libc@^1.0.2:
   version "1.0.3"
   resolved "http://npm.s1.vynca.org/detect-libc/-/detect-libc-1.0.3/fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
 
+detect-node@^2.0.3:
+  version "2.0.3"
+  resolved "http://npm.s1.vynca.org/detect-node/-/detect-node-2.0.3/a2033c09cc8e158d37748fbde7507832bd6ce127.tgz#a2033c09cc8e158d37748fbde7507832bd6ce127"
+
 dezalgo@^1.0.0, dezalgo@^1.0.1, dezalgo@~1.0.3:
   version "1.0.3"
   resolved "http://npm.s1.vynca.org/dezalgo/-/dezalgo-1.0.3/7f742de066fc748bc8db820569dddce49bf0d456.tgz#7f742de066fc748bc8db820569dddce49bf0d456"
@@ -2637,6 +2741,27 @@ diffie-hellman@^5.0.0:
     bn.js "^4.1.0"
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
+
+dns-equal@^1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/dns-equal/-/dns-equal-1.0.0/b39e7f1da6eb0a75ba9c17324b34753c47e0654d.tgz#b39e7f1da6eb0a75ba9c17324b34753c47e0654d"
+
+dns-packet@^1.0.1:
+  version "1.2.2"
+  resolved "http://npm.s1.vynca.org/dns-packet/-/dns-packet-1.2.2/a8a26bec7646438963fc86e06f8f8b16d6c8bf7a.tgz#a8a26bec7646438963fc86e06f8f8b16d6c8bf7a"
+  dependencies:
+    ip "^1.1.0"
+    safe-buffer "^5.0.1"
+
+dns-prefetch-control@0.1.0:
+  version "0.1.0"
+  resolved "http://npm.s1.vynca.org/dns-prefetch-control/-/dns-prefetch-control-0.1.0/60ddb457774e178f1f9415f0cabb0e85b0b300b2.tgz#60ddb457774e178f1f9415f0cabb0e85b0b300b2"
+
+dns-txt@^2.0.2:
+  version "2.0.2"
+  resolved "http://npm.s1.vynca.org/dns-txt/-/dns-txt-2.0.2/b91d806f5d27188e4ab3e7d107d881a1cc4642b6.tgz#b91d806f5d27188e4ab3e7d107d881a1cc4642b6"
+  dependencies:
+    buffer-indexof "^1.0.0"
 
 doctrine@1.5.0, doctrine@^1.2.2:
   version "1.5.0"
@@ -2662,6 +2787,10 @@ dom-walk@^0.1.0:
 domain-browser@^1.1.1:
   version "1.1.7"
   resolved "http://npm.s1.vynca.org/domain-browser/-/domain-browser-1.1.7/867aa4b093faa05f1de08c06f4d7b21fdf8698bc.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
+
+dont-sniff-mimetype@1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/dont-sniff-mimetype/-/dont-sniff-mimetype-1.0.0/5932890dc9f4e2f19e5eb02a20026e5e5efc8f58.tgz#5932890dc9f4e2f19e5eb02a20026e5e5efc8f58"
 
 dot-prop@^3.0.0:
   version "3.0.0"
@@ -2695,6 +2824,10 @@ duplexer3@^0.1.4:
   version "0.1.4"
   resolved "http://npm.s1.vynca.org/duplexer3/-/duplexer3-0.1.4/ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
 
+duplexer@^0.1.1:
+  version "0.1.1"
+  resolved "http://npm.s1.vynca.org/duplexer/-/duplexer-0.1.1/ace6ff808c1ce66b57d1ebf97977acb02334cfc1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
+
 duplexify@^3.2.0:
   version "3.5.1"
   resolved "http://npm.s1.vynca.org/duplexify/-/duplexify-3.5.1/4e1516be68838bc90a49994f0b39a6e5960befcd.tgz#4e1516be68838bc90a49994f0b39a6e5960befcd"
@@ -2717,6 +2850,10 @@ editor@~1.0.0:
 ee-first@1.1.1:
   version "1.1.1"
   resolved "http://npm.s1.vynca.org/ee-first/-/ee-first-1.1.1/590c61156b0ae2f4f0255732a158b266bc56b21d.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
+
+ejs@^2.5.6:
+  version "2.5.7"
+  resolved "http://npm.s1.vynca.org/ejs/-/ejs-2.5.7/cc872c168880ae3c7189762fd5ffc00896c9518a.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.27:
   version "1.3.27"
@@ -3047,9 +3184,19 @@ event-emitter@~0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
+eventemitter3@1.x.x:
+  version "1.2.0"
+  resolved "http://npm.s1.vynca.org/eventemitter3/-/eventemitter3-1.2.0/1c86991d816ad1e504750e73874224ecf3bec508.tgz#1c86991d816ad1e504750e73874224ecf3bec508"
+
 events@^1.0.0, events@^1.1.1:
   version "1.1.1"
   resolved "http://npm.s1.vynca.org/events/-/events-1.1.1/9ebdb7635ad099c70dcc4c2a1f5004288e8bd924.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
+
+eventsource@0.1.6:
+  version "0.1.6"
+  resolved "http://npm.s1.vynca.org/eventsource/-/eventsource-0.1.6/0acede849ed7dd1ccc32c811bb11b944d4f29232.tgz#0acede849ed7dd1ccc32c811bb11b944d4f29232"
+  dependencies:
+    original ">=0.0.5"
 
 evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
   version "1.0.3"
@@ -3102,7 +3249,11 @@ expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
-express@^4.16.2:
+expect-ct@0.1.0:
+  version "0.1.0"
+  resolved "http://npm.s1.vynca.org/expect-ct/-/expect-ct-0.1.0/52735678de18530890d8d7b95f0ac63640958094.tgz#52735678de18530890d8d7b95f0ac63640958094"
+
+express@^4.15.2, express@^4.16.2:
   version "4.16.2"
   resolved "http://npm.s1.vynca.org/express/-/express-4.16.2/e35c6dfe2d64b7dca0a5cd4f21781be3299e076c.tgz#e35c6dfe2d64b7dca0a5cd4f21781be3299e076c"
   dependencies:
@@ -3186,6 +3337,18 @@ fastparse@^1.1.1:
   version "1.1.1"
   resolved "http://npm.s1.vynca.org/fastparse/-/fastparse-1.1.1/d1e2643b38a94d7583b479060e6c4affc94071f8.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
 
+faye-websocket@^0.10.0:
+  version "0.10.0"
+  resolved "http://npm.s1.vynca.org/faye-websocket/-/faye-websocket-0.10.0/4e492f8d04dfb6f89003507f6edbf2d501e7c6f4.tgz#4e492f8d04dfb6f89003507f6edbf2d501e7c6f4"
+  dependencies:
+    websocket-driver ">=0.5.1"
+
+faye-websocket@~0.11.0:
+  version "0.11.1"
+  resolved "http://npm.s1.vynca.org/faye-websocket/-/faye-websocket-0.11.1/f0efe18c4f56e4f40afc7e06c719fd5ee6188f38.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
+  dependencies:
+    websocket-driver ">=0.5.1"
+
 fbjs@^0.8.12, fbjs@^0.8.16:
   version "0.8.16"
   resolved "http://npm.s1.vynca.org/fbjs/-/fbjs-0.8.16/5e67432f550dc41b572bf55847b8aca64e5337db.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
@@ -3222,6 +3385,10 @@ file-loader@^1.1.5:
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "http://npm.s1.vynca.org/filename-regex/-/filename-regex-2.0.1/c1c4b9bee3e09725ddb106b75c1e301fe2f18b26.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
+
+filesize@^3.5.9:
+  version "3.5.11"
+  resolved "http://npm.s1.vynca.org/filesize/-/filesize-3.5.11/1919326749433bb3cf77368bd158caabcc19e9ee.tgz#1919326749433bb3cf77368bd158caabcc19e9ee"
 
 fill-range@^2.1.0:
   version "2.2.3"
@@ -3394,6 +3561,10 @@ formatio@1.2.0, formatio@^1.2.0:
 forwarded@~0.1.2:
   version "0.1.2"
   resolved "http://npm.s1.vynca.org/forwarded/-/forwarded-0.1.2/98c23dab1175657b8c0573e8ceccd91b0ff18c84.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
+
+frameguard@3.0.0:
+  version "3.0.0"
+  resolved "http://npm.s1.vynca.org/frameguard/-/frameguard-3.0.0/7bcad469ee7b96e91d12ceb3959c78235a9272e9.tgz#7bcad469ee7b96e91d12ceb3959c78235a9272e9"
 
 fresh@0.5.2:
   version "0.5.2"
@@ -3882,6 +4053,16 @@ gulplog@^1.0.0:
   dependencies:
     glogg "^1.0.0"
 
+gzip-size@^3.0.0:
+  version "3.0.0"
+  resolved "http://npm.s1.vynca.org/gzip-size/-/gzip-size-3.0.0/546188e9bdc337f673772f81660464b389dce520.tgz#546188e9bdc337f673772f81660464b389dce520"
+  dependencies:
+    duplexer "^0.1.1"
+
+handle-thing@^1.2.5:
+  version "1.2.5"
+  resolved "http://npm.s1.vynca.org/handle-thing/-/handle-thing-1.2.5/fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
+
 handlebars@^4.0.3:
   version "4.0.11"
   resolved "http://npm.s1.vynca.org/handlebars/-/handlebars-4.0.11/630a35dfe0294bc281edae6ffc5d329fc7982dcc.tgz#630a35dfe0294bc281edae6ffc5d329fc7982dcc"
@@ -4005,6 +4186,47 @@ he@1.1.1:
   version "1.1.1"
   resolved "http://npm.s1.vynca.org/he/-/he-1.1.1/93410fd21b009735151f8868c2f271f3427e23fd.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+helmet-csp@2.6.0:
+  version "2.6.0"
+  resolved "http://npm.s1.vynca.org/helmet-csp/-/helmet-csp-2.6.0/c1f5595afbc5f83e5f1e6c15f842f07a10f6ea04.tgz#c1f5595afbc5f83e5f1e6c15f842f07a10f6ea04"
+  dependencies:
+    camelize "1.0.0"
+    content-security-policy-builder "1.1.0"
+    dasherize "2.0.0"
+    lodash.reduce "4.6.0"
+    platform "1.3.4"
+
+helmet@^3.9.0:
+  version "3.9.0"
+  resolved "http://npm.s1.vynca.org/helmet/-/helmet-3.9.0/7b2cf015a2d109bca83ede7924420799c0e67dee.tgz#7b2cf015a2d109bca83ede7924420799c0e67dee"
+  dependencies:
+    dns-prefetch-control "0.1.0"
+    dont-sniff-mimetype "1.0.0"
+    expect-ct "0.1.0"
+    frameguard "3.0.0"
+    helmet-csp "2.6.0"
+    hide-powered-by "1.0.0"
+    hpkp "2.0.0"
+    hsts "2.1.0"
+    ienoopen "1.0.0"
+    nocache "2.0.0"
+    referrer-policy "1.1.0"
+    x-xss-protection "1.0.0"
+
+hide-powered-by@1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/hide-powered-by/-/hide-powered-by-1.0.0/4a85ad65881f62857fc70af7174a1184dccce32b.tgz#4a85ad65881f62857fc70af7174a1184dccce32b"
+
+history@^4.7.2:
+  version "4.7.2"
+  resolved "http://npm.s1.vynca.org/history/-/history-4.7.2/22b5c7f31633c5b8021c7f4a8a954ac139ee8d5b.tgz#22b5c7f31633c5b8021c7f4a8a954ac139ee8d5b"
+  dependencies:
+    invariant "^2.2.1"
+    loose-envify "^1.2.0"
+    resolve-pathname "^2.2.0"
+    value-equal "^0.4.0"
+    warning "^3.0.0"
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "http://npm.s1.vynca.org/hmac-drbg/-/hmac-drbg-1.0.1/d2745701025a6c775a6c545793ed502fc0c649a1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -4025,6 +4247,10 @@ hoist-non-react-statics@1.x.x, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "http://npm.s1.vynca.org/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0/aa448cf0986d55cc40773b17174b7dd066cb7cfb.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
+hoist-non-react-statics@^2.2.1, hoist-non-react-statics@^2.3.0, hoist-non-react-statics@^2.3.1:
+  version "2.3.1"
+  resolved "http://npm.s1.vynca.org/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1/343db84c6018c650778898240135a1420ee22ce0.tgz#343db84c6018c650778898240135a1420ee22ce0"
+
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "http://npm.s1.vynca.org/home-or-tmp/-/home-or-tmp-2.0.0/e36c3f2d2cae7d746a857e38d18d5f32a7882db8.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -4042,6 +4268,23 @@ hosted-git-info@^2.1.4, hosted-git-info@^2.1.5, hosted-git-info@~2.1.5:
   version "2.1.5"
   resolved "http://npm.s1.vynca.org/hosted-git-info/-/hosted-git-info-2.1.5/0ba81d90da2e25ab34a332e6ec77936e1598118b.tgz#0ba81d90da2e25ab34a332e6ec77936e1598118b"
 
+hpack.js@^2.1.6:
+  version "2.1.6"
+  resolved "http://npm.s1.vynca.org/hpack.js/-/hpack.js-2.1.6/87774c0949e513f42e84575b3c45681fade2a0b2.tgz#87774c0949e513f42e84575b3c45681fade2a0b2"
+  dependencies:
+    inherits "^2.0.1"
+    obuf "^1.0.0"
+    readable-stream "^2.0.1"
+    wbuf "^1.1.0"
+
+hpkp@2.0.0:
+  version "2.0.0"
+  resolved "http://npm.s1.vynca.org/hpkp/-/hpkp-2.0.0/10e142264e76215a5d30c44ec43de64dee6d1672.tgz#10e142264e76215a5d30c44ec43de64dee6d1672"
+
+hsts@2.1.0:
+  version "2.1.0"
+  resolved "http://npm.s1.vynca.org/hsts/-/hsts-2.1.0/cbd6c918a2385fee1dd5680bfb2b3a194c0121cc.tgz#cbd6c918a2385fee1dd5680bfb2b3a194c0121cc"
+
 html-comment-regex@^1.1.0:
   version "1.1.1"
   resolved "http://npm.s1.vynca.org/html-comment-regex/-/html-comment-regex-1.1.1/668b93776eaae55ebde8f3ad464b307a4963625e.tgz#668b93776eaae55ebde8f3ad464b307a4963625e"
@@ -4058,6 +4301,10 @@ html-tag-names@^1.1.1:
   version "1.1.2"
   resolved "http://npm.s1.vynca.org/html-tag-names/-/html-tag-names-1.1.2/f65168964c5a9c82675efda882875dcb2a875c22.tgz#f65168964c5a9c82675efda882875dcb2a875c22"
 
+http-deceiver@^1.2.7:
+  version "1.2.7"
+  resolved "http://npm.s1.vynca.org/http-deceiver/-/http-deceiver-1.2.7/fa7168944ab9a519d337cb0bec7284dc3e723d87.tgz#fa7168944ab9a519d337cb0bec7284dc3e723d87"
+
 http-errors@1.6.2, http-errors@~1.6.2:
   version "1.6.2"
   resolved "http://npm.s1.vynca.org/http-errors/-/http-errors-1.6.2/0a002cc85707192a7e7946ceedc11155f60ec736.tgz#0a002cc85707192a7e7946ceedc11155f60ec736"
@@ -4066,6 +4313,26 @@ http-errors@1.6.2, http-errors@~1.6.2:
     inherits "2.0.3"
     setprototypeof "1.0.3"
     statuses ">= 1.3.1 < 2"
+
+http-parser-js@>=0.4.0:
+  version "0.4.9"
+  resolved "http://npm.s1.vynca.org/http-parser-js/-/http-parser-js-0.4.9/ea1a04fb64adff0242e9974f297dd4c3cad271e1.tgz#ea1a04fb64adff0242e9974f297dd4c3cad271e1"
+
+http-proxy-middleware@~0.17.4:
+  version "0.17.4"
+  resolved "http://npm.s1.vynca.org/http-proxy-middleware/-/http-proxy-middleware-0.17.4/642e8848851d66f09d4f124912846dbaeb41b833.tgz#642e8848851d66f09d4f124912846dbaeb41b833"
+  dependencies:
+    http-proxy "^1.16.2"
+    is-glob "^3.1.0"
+    lodash "^4.17.2"
+    micromatch "^2.3.11"
+
+http-proxy@^1.16.2:
+  version "1.16.2"
+  resolved "http://npm.s1.vynca.org/http-proxy/-/http-proxy-1.16.2/06dff292952bf64dbe8471fa9df73066d4f37742.tgz#06dff292952bf64dbe8471fa9df73066d4f37742"
+  dependencies:
+    eventemitter3 "1.x.x"
+    requires-port "1.x.x"
 
 http-signature@~1.1.0:
   version "1.1.1"
@@ -4109,6 +4376,10 @@ ieee754@^1.1.4:
   version "1.1.8"
   resolved "http://npm.s1.vynca.org/ieee754/-/ieee754-1.1.8/be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
 
+ienoopen@1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/ienoopen/-/ienoopen-1.0.0/346a428f474aac8f50cf3784ea2d0f16f62bda6b.tgz#346a428f474aac8f50cf3784ea2d0f16f62bda6b"
+
 iferr@^0.1.5, iferr@~0.1.5:
   version "0.1.5"
   resolved "http://npm.s1.vynca.org/iferr/-/iferr-0.1.5/c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
@@ -4124,6 +4395,13 @@ immutable@^3.8.1:
 import-lazy@^2.1.0:
   version "2.1.0"
   resolved "http://npm.s1.vynca.org/import-lazy/-/import-lazy-2.1.0/05698e3d45c88e8d7e9d92cb0584e77f096f3e43.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
+
+import-local@^0.1.1:
+  version "0.1.1"
+  resolved "http://npm.s1.vynca.org/import-local/-/import-local-0.1.1/b1179572aacdc11c6a91009fb430dbcab5f668a8.tgz#b1179572aacdc11c6a91009fb430dbcab5f668a8"
+  dependencies:
+    pkg-dir "^2.0.0"
+    resolve-cwd "^2.0.0"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -4237,11 +4515,17 @@ inquirer@^0.12.0:
     strip-ansi "^3.0.0"
     through "^2.3.6"
 
+internal-ip@1.2.0:
+  version "1.2.0"
+  resolved "http://npm.s1.vynca.org/internal-ip/-/internal-ip-1.2.0/ae9fbf93b984878785d50a8de1b356956058cf5c.tgz#ae9fbf93b984878785d50a8de1b356956058cf5c"
+  dependencies:
+    meow "^3.3.0"
+
 interpret@^1.0.0:
   version "1.0.4"
   resolved "http://npm.s1.vynca.org/interpret/-/interpret-1.0.4/820cdd588b868ffb191a809506d6c9c8f212b1b0.tgz#820cdd588b868ffb191a809506d6c9c8f212b1b0"
 
-invariant@^2.2.2:
+invariant@^2.0.0, invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.2"
   resolved "http://npm.s1.vynca.org/invariant/-/invariant-2.2.2/9e1f56ac0acdb6bf303306f338be3b204ae60360.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -4250,6 +4534,10 @@ invariant@^2.2.2:
 invert-kv@^1.0.0:
   version "1.0.0"
   resolved "http://npm.s1.vynca.org/invert-kv/-/invert-kv-1.0.0/104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
+
+ip@^1.1.0, ip@^1.1.5:
+  version "1.1.5"
+  resolved "http://npm.s1.vynca.org/ip/-/ip-1.1.5/bdded70114290828c0a039e72ef25f5aaec4354a.tgz#bdded70114290828c0a039e72ef25f5aaec4354a"
 
 ipaddr.js@1.5.2:
   version "1.5.2"
@@ -4320,6 +4608,10 @@ is-extglob@^1.0.0:
   version "1.0.0"
   resolved "http://npm.s1.vynca.org/is-extglob/-/is-extglob-1.0.0/ac468177c4943405a092fc8f29760c6ffc6206c0.tgz#ac468177c4943405a092fc8f29760c6ffc6206c0"
 
+is-extglob@^2.1.0:
+  version "2.1.1"
+  resolved "http://npm.s1.vynca.org/is-extglob/-/is-extglob-2.1.1/a88c02535791f02ed37c76a1b9ea9773c833f8c2.tgz#a88c02535791f02ed37c76a1b9ea9773c833f8c2"
+
 is-finite@^1.0.0:
   version "1.0.2"
   resolved "http://npm.s1.vynca.org/is-finite/-/is-finite-1.0.2/cc6677695602be550ef11e8b4aa6305342b6d0aa.tgz#cc6677695602be550ef11e8b4aa6305342b6d0aa"
@@ -4345,6 +4637,12 @@ is-glob@^2.0.0, is-glob@^2.0.1:
   resolved "http://npm.s1.vynca.org/is-glob/-/is-glob-2.0.1/d096f926a3ded5600f3fdfd91198cb0888c2d863.tgz#d096f926a3ded5600f3fdfd91198cb0888c2d863"
   dependencies:
     is-extglob "^1.0.0"
+
+is-glob@^3.1.0:
+  version "3.1.0"
+  resolved "http://npm.s1.vynca.org/is-glob/-/is-glob-3.1.0/7ba5ae24217804ac70707b96922567486cc3e84a.tgz#7ba5ae24217804ac70707b96922567486cc3e84a"
+  dependencies:
+    is-extglob "^2.1.0"
 
 is-installed-globally@^0.1.0:
   version "0.1.0"
@@ -4481,6 +4779,10 @@ is-utf8@^0.2.0:
 is-windows@^0.2.0:
   version "0.2.0"
   resolved "http://npm.s1.vynca.org/is-windows/-/is-windows-0.2.0/de1aa6d63ea29dd248737b69f1ff8b8002d2108c.tgz#de1aa6d63ea29dd248737b69f1ff8b8002d2108c"
+
+is-wsl@^1.1.0:
+  version "1.1.0"
+  resolved "http://npm.s1.vynca.org/is-wsl/-/is-wsl-1.1.0/1f16e4aa22b04d1336b66188a66af3c600c3a66d.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
 
 isarray@0.0.1:
   version "0.0.1"
@@ -4640,7 +4942,7 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "http://npm.s1.vynca.org/json-stringify-safe/-/json-stringify-safe-5.0.1/1296a2d58fd45f19a0f6ce01d65701e2c735b6eb.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
-json3@3.3.2:
+json3@3.3.2, json3@^3.3.2:
   version "3.3.2"
   resolved "http://npm.s1.vynca.org/json3/-/json3-3.3.2/3c0434743df93e2f5c42aee7b19bcb483575f4e1.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
 
@@ -4685,6 +4987,10 @@ jxLoader@*:
 keycode@^2.1.8:
   version "2.1.9"
   resolved "http://npm.s1.vynca.org/keycode/-/keycode-2.1.9/964a23c54e4889405b4861a5c9f0480d45141dfa.tgz#964a23c54e4889405b4861a5c9f0480d45141dfa"
+
+killable@^1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/killable/-/killable-1.0.0/da8b84bd47de5395878f95d64d02f2449fe05e6b.tgz#da8b84bd47de5395878f95d64d02f2449fe05e6b"
 
 kind-of@^2.0.1:
   version "2.0.1"
@@ -4799,7 +5105,7 @@ lockfile@~1.0.2:
   version "1.0.3"
   resolved "http://npm.s1.vynca.org/lockfile/-/lockfile-1.0.3/2638fc39a0331e9cac1a04b71799931c9c50df79.tgz#2638fc39a0331e9cac1a04b71799931c9c50df79"
 
-lodash-es@^4.2.1:
+lodash-es@^4.2.0, lodash-es@^4.2.1:
   version "4.17.4"
   resolved "http://npm.s1.vynca.org/lodash-es/-/lodash-es-4.17.4/dcc1d7552e150a0640073ba9cb31d70f032950e7.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
 
@@ -4951,6 +5257,10 @@ lodash.pick@^4.4.0:
   version "4.4.0"
   resolved "http://npm.s1.vynca.org/lodash.pick/-/lodash.pick-4.4.0/52f05610fff9ded422611441ed1fc123a03001b3.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
 
+lodash.reduce@4.6.0:
+  version "4.6.0"
+  resolved "http://npm.s1.vynca.org/lodash.reduce/-/lodash.reduce-4.6.0/f1ab6b839299ad48f784abbf476596f03b914d3b.tgz#f1ab6b839299ad48f784abbf476596f03b914d3b"
+
 lodash.restparam@^3.0.0:
   version "3.6.1"
   resolved "http://npm.s1.vynca.org/lodash.restparam/-/lodash.restparam-3.6.1/936a4e309ef330a7645ed4145986c85ae5b20805.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
@@ -5000,7 +5310,7 @@ lodash.without@~4.4.0:
   version "4.4.0"
   resolved "http://npm.s1.vynca.org/lodash.without/-/lodash.without-4.4.0/3cd4574a00b67bae373a94b748772640507b7aac.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
 
-lodash@4.x.x, lodash@^4.0.0, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.4:
+lodash@4.x.x, lodash@^4.0.0, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.4:
   version "4.17.4"
   resolved "http://npm.s1.vynca.org/lodash/-/lodash-4.17.4/78203a4d1c328ae1d86dca6460e369b57f4055ae.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -5011,6 +5321,10 @@ lodash@^3.10.1:
 lodash@~1.0.1:
   version "1.0.2"
   resolved "http://npm.s1.vynca.org/lodash/-/lodash-1.0.2/8f57560c83b59fc270bd3d561b690043430e2551.tgz#8f57560c83b59fc270bd3d561b690043430e2551"
+
+loglevel@^1.4.1:
+  version "1.6.0"
+  resolved "http://npm.s1.vynca.org/loglevel/-/loglevel-1.6.0/ae0caa561111498c5ba13723d6fb631d24003934.tgz#ae0caa561111498c5ba13723d6fb631d24003934"
 
 lolex@^1.6.0:
   version "1.6.0"
@@ -5024,7 +5338,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "http://npm.s1.vynca.org/longest/-/longest-1.0.1/30a0b2da38f73770e8294a0d22e6625ed77d0097.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "http://npm.s1.vynca.org/loose-envify/-/loose-envify-1.3.1/d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -5114,7 +5428,7 @@ memory-fs@^0.4.0, memory-fs@~0.4.1:
     errno "^0.1.3"
     readable-stream "^2.0.1"
 
-meow@^3.7.0:
+meow@^3.3.0, meow@^3.7.0:
   version "3.7.0"
   resolved "http://npm.s1.vynca.org/meow/-/meow-3.7.0/72cb668b425228290abbfa856892587308a801fb.tgz#72cb668b425228290abbfa856892587308a801fb"
   dependencies:
@@ -5168,7 +5482,7 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
-mime-db@~1.30.0:
+"mime-db@>= 1.30.0 < 2", mime-db@~1.30.0:
   version "1.30.0"
   resolved "http://npm.s1.vynca.org/mime-db/-/mime-db-1.30.0/74c643da2dd9d6a45399963465b26d5ca7d71f01.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
 
@@ -5244,7 +5558,7 @@ mixin-object@^2.0.1:
     for-in "^0.1.3"
     is-extendable "^0.1.1"
 
-mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
+mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "http://npm.s1.vynca.org/mkdirp/-/mkdirp-0.5.1/30057438eac6cf7f8c4767f38648d6697d75c903.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
@@ -5267,6 +5581,10 @@ mocha@^3.5.0:
     mkdirp "0.5.1"
     supports-color "3.1.2"
 
+moment@^2.19.2:
+  version "2.19.2"
+  resolved "http://npm.s1.vynca.org/moment/-/moment-2.19.2/8a7f774c95a64550b4c7ebd496683908f9419dbe.tgz#8a7f774c95a64550b4c7ebd496683908f9419dbe"
+
 moo-server@*, moo-server@1.3.x:
   version "1.3.0"
   resolved "http://npm.s1.vynca.org/moo-server/-/moo-server-1.3.0/5dc79569565a10d6efed5439491e69d2392e58f1.tgz#5dc79569565a10d6efed5439491e69d2392e58f1"
@@ -5274,6 +5592,17 @@ moo-server@*, moo-server@1.3.x:
 ms@2.0.0:
   version "2.0.0"
   resolved "http://npm.s1.vynca.org/ms/-/ms-2.0.0/5608aeadfc00be6c2901df5f9861788de0d597c8.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
+
+multicast-dns-service-types@^1.1.0:
+  version "1.1.0"
+  resolved "http://npm.s1.vynca.org/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0/899f11d9686e5e05cb91b35d5f0e63b773cfc901.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
+
+multicast-dns@^6.0.1:
+  version "6.2.1"
+  resolved "http://npm.s1.vynca.org/multicast-dns/-/multicast-dns-6.2.1/c5035defa9219d30640558a49298067352098060.tgz#c5035defa9219d30640558a49298067352098060"
+  dependencies:
+    dns-packet "^1.0.1"
+    thunky "^0.1.0"
 
 multipipe@^0.1.2:
   version "0.1.2"
@@ -5340,6 +5669,10 @@ nise@^1.0.1:
     path-to-regexp "^1.7.0"
     text-encoding "^0.6.4"
 
+nocache@2.0.0:
+  version "2.0.0"
+  resolved "http://npm.s1.vynca.org/nocache/-/nocache-2.0.0/202b48021a0c4cbde2df80de15a17443c8b43980.tgz#202b48021a0c4cbde2df80de15a17443c8b43980"
+
 node-alias@^1.0.4:
   version "1.0.4"
   resolved "http://npm.s1.vynca.org/node-alias/-/node-alias-1.0.4/1f1b916b56b9ea241c0135f97ced6940f556f292.tgz#1f1b916b56b9ea241c0135f97ced6940f556f292"
@@ -5359,6 +5692,10 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+node-forge@0.6.33:
+  version "0.6.33"
+  resolved "http://npm.s1.vynca.org/node-forge/-/node-forge-0.6.33/463811879f573d45155ad6a9f43dc296e8e85ebc.tgz#463811879f573d45155ad6a9f43dc296e8e85ebc"
 
 node-gyp@^3.3.1, node-gyp@~3.4.0:
   version "3.4.0"
@@ -5778,11 +6115,19 @@ object.values@^1.0.4:
     function-bind "^1.1.0"
     has "^1.0.1"
 
+obuf@^1.0.0, obuf@^1.1.1:
+  version "1.1.1"
+  resolved "http://npm.s1.vynca.org/obuf/-/obuf-1.1.1/104124b6c602c6796881a042541d36db43a5264e.tgz#104124b6c602c6796881a042541d36db43a5264e"
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "http://npm.s1.vynca.org/on-finished/-/on-finished-2.3.0/20f1336481b083cd75337992a16971aa2d906947.tgz#20f1336481b083cd75337992a16971aa2d906947"
   dependencies:
     ee-first "1.1.1"
+
+on-headers@~1.0.1:
+  version "1.0.1"
+  resolved "http://npm.s1.vynca.org/on-headers/-/on-headers-1.0.1/928f5d0f470d49342651ea6794b0857c100693f7.tgz#928f5d0f470d49342651ea6794b0857c100693f7"
 
 once@^1.3.0, once@^1.3.3, once@^1.4.0, once@~1.4.0:
   version "1.4.0"
@@ -5804,9 +6149,15 @@ open@^0.0.5:
   version "0.0.5"
   resolved "http://npm.s1.vynca.org/open/-/open-0.0.5/42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc.tgz#42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc"
 
-opener@~1.4.2:
+opener@^1.4.3, opener@~1.4.2:
   version "1.4.3"
   resolved "http://npm.s1.vynca.org/opener/-/opener-1.4.3/5c6da2c5d7e5831e8ffa3964950f8d6674ac90b8.tgz#5c6da2c5d7e5831e8ffa3964950f8d6674ac90b8"
+
+opn@^5.1.0:
+  version "5.1.0"
+  resolved "http://npm.s1.vynca.org/opn/-/opn-5.1.0/72ce2306a17dbea58ff1041853352b4a8fc77519.tgz#72ce2306a17dbea58ff1041853352b4a8fc77519"
+  dependencies:
+    is-wsl "^1.1.0"
 
 optimist@^0.6.1:
   version "0.6.1"
@@ -5837,6 +6188,12 @@ orchestrator@^0.3.0:
 ordered-read-streams@^0.1.0:
   version "0.1.0"
   resolved "http://npm.s1.vynca.org/ordered-read-streams/-/ordered-read-streams-0.1.0/fd565a9af8eb4473ba69b6ed8a34352cb552f126.tgz#fd565a9af8eb4473ba69b6ed8a34352cb552f126"
+
+original@>=0.0.5:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/original/-/original-1.0.0/9147f93fa1696d04be61e01bd50baeaca656bd3b.tgz#9147f93fa1696d04be61e01bd50baeaca656bd3b"
+  dependencies:
+    url-parse "1.0.x"
 
 os-browserify@^0.3.0:
   version "0.3.0"
@@ -6106,6 +6463,10 @@ pkg-dir@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
+platform@1.3.4:
+  version "1.3.4"
+  resolved "http://npm.s1.vynca.org/platform/-/platform-1.3.4/6f0fb17edaaa48f21442b3a975c063130f1c3ebd.tgz#6f0fb17edaaa48f21442b3a975c063130f1c3ebd"
+
 pluralize@^1.2.1:
   version "1.2.1"
   resolved "http://npm.s1.vynca.org/pluralize/-/pluralize-1.2.1/d1a21483fd22bb41e58a12fa3421823140897c45.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
@@ -6116,6 +6477,14 @@ podda@^1.2.2:
   dependencies:
     babel-runtime "^6.11.6"
     immutable "^3.8.1"
+
+portfinder@^1.0.9:
+  version "1.0.13"
+  resolved "http://npm.s1.vynca.org/portfinder/-/portfinder-1.0.13/bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
+  dependencies:
+    async "^1.5.2"
+    debug "^2.2.0"
+    mkdirp "0.5.x"
 
 postcss-calc@^5.2.0:
   version "5.3.1"
@@ -6553,6 +6922,14 @@ querystring@0.2.0, querystring@^0.2.0:
   version "0.2.0"
   resolved "http://npm.s1.vynca.org/querystring/-/querystring-0.2.0/b209849203bb25df820da756e747005878521620.tgz#b209849203bb25df820da756e747005878521620"
 
+querystringify@0.0.x:
+  version "0.0.4"
+  resolved "http://npm.s1.vynca.org/querystringify/-/querystringify-0.0.4/0cf7f84f9463ff0ae51c4c4b142d95be37724d9c.tgz#0cf7f84f9463ff0ae51c4c4b142d95be37724d9c"
+
+querystringify@~1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/querystringify/-/querystringify-1.0.0/6286242112c5b712fa654e526652bf6a13ff05cb.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
+
 radium@^0.19.0:
   version "0.19.6"
   resolved "http://npm.s1.vynca.org/radium/-/radium-0.19.6/b86721d08dbd303b061a4ae2ebb06cc6e335ae72.tgz#b86721d08dbd303b061a4ae2ebb06cc6e335ae72"
@@ -6616,14 +6993,23 @@ react-docgen@^2.15.0:
     node-dir "^0.1.10"
     recast "^0.12.6"
 
-react-dom@^16.1.1:
-  version "16.1.1"
-  resolved "http://npm.s1.vynca.org/react-dom/-/react-dom-16.1.1/b2e331b6d752faf1a2d31399969399a41d8d45f8.tgz#b2e331b6d752faf1a2d31399969399a41d8d45f8"
+react-dom@^16.2.0:
+  version "16.2.0"
+  resolved "http://npm.s1.vynca.org/react-dom/-/react-dom-16.2.0/69003178601c0ca19b709b33a83369fe6124c044.tgz#69003178601c0ca19b709b33a83369fe6124c044"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+react-helmet@^5.2.0:
+  version "5.2.0"
+  resolved "http://npm.s1.vynca.org/react-helmet/-/react-helmet-5.2.0/a81811df21313a6d55c5f058c4aeba5d6f3d97a7.tgz#a81811df21313a6d55c5f058c4aeba5d6f3d97a7"
+  dependencies:
+    deep-equal "^1.0.1"
+    object-assign "^4.1.1"
+    prop-types "^15.5.4"
+    react-side-effect "^1.1.0"
 
 react-html-attributes@^1.3.0:
   version "1.4.1"
@@ -6654,6 +7040,51 @@ react-modal@^3.1.2:
   dependencies:
     exenv "^1.2.0"
     prop-types "^15.5.10"
+
+react-redux@^5.0.6:
+  version "5.0.6"
+  resolved "http://npm.s1.vynca.org/react-redux/-/react-redux-5.0.6/23ed3a4f986359d68b5212eaaa681e60d6574946.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"
+  dependencies:
+    hoist-non-react-statics "^2.2.1"
+    invariant "^2.0.0"
+    lodash "^4.2.0"
+    lodash-es "^4.2.0"
+    loose-envify "^1.1.0"
+    prop-types "^15.5.10"
+
+react-router-dom@^4.2.2:
+  version "4.2.2"
+  resolved "http://npm.s1.vynca.org/react-router-dom/-/react-router-dom-4.2.2/c8a81df3adc58bba8a76782e946cbd4eae649b8d.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"
+  dependencies:
+    history "^4.7.2"
+    invariant "^2.2.2"
+    loose-envify "^1.3.1"
+    prop-types "^15.5.4"
+    react-router "^4.2.0"
+    warning "^3.0.0"
+
+react-router-redux@^4.0.8:
+  version "4.0.8"
+  resolved "http://npm.s1.vynca.org/react-router-redux/-/react-router-redux-4.0.8/227403596b5151e182377dab835b5d45f0f8054e.tgz#227403596b5151e182377dab835b5d45f0f8054e"
+
+react-router@^4.2.0:
+  version "4.2.0"
+  resolved "http://npm.s1.vynca.org/react-router/-/react-router-4.2.0/61f7b3e3770daeb24062dae3eedef1b054155986.tgz#61f7b3e3770daeb24062dae3eedef1b054155986"
+  dependencies:
+    history "^4.7.2"
+    hoist-non-react-statics "^2.3.0"
+    invariant "^2.2.2"
+    loose-envify "^1.3.1"
+    path-to-regexp "^1.7.0"
+    prop-types "^15.5.4"
+    warning "^3.0.0"
+
+react-side-effect@^1.1.0:
+  version "1.1.3"
+  resolved "http://npm.s1.vynca.org/react-side-effect/-/react-side-effect-1.1.3/512c25abe0dec172834c4001ec5c51e04d41bc5c.tgz#512c25abe0dec172834c4001ec5c51e04d41bc5c"
+  dependencies:
+    exenv "^1.2.1"
+    shallowequal "^1.0.1"
 
 react-split-pane@^0.1.71:
   version "0.1.71"
@@ -6692,9 +7123,9 @@ react-treebeard@^2.0.3:
     shallowequal "^0.2.2"
     velocity-react "^1.3.1"
 
-react@^16.1.1:
-  version "16.1.1"
-  resolved "http://npm.s1.vynca.org/react/-/react-16.1.1/d5c4ef795507e3012282dd51261ff9c0e824fe1f.tgz#d5c4ef795507e3012282dd51261ff9c0e824fe1f"
+react@^16.2.0:
+  version "16.2.0"
+  resolved "http://npm.s1.vynca.org/react/-/react-16.2.0/a31bd2dab89bff65d42134fa187f24d054c273ba.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -6784,7 +7215,7 @@ read@1, read@~1.0.1, read@~1.0.7:
   dependencies:
     mute-stream "~0.0.4"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.6, readable-stream@^2.3.3:
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.6, readable-stream@^2.2.9, readable-stream@^2.3.3:
   version "2.3.3"
   resolved "http://npm.s1.vynca.org/readable-stream/-/readable-stream-2.3.3/368f2512d79f9d46fdfc71349ae7878bbc1eb95c.tgz#368f2512d79f9d46fdfc71349ae7878bbc1eb95c"
   dependencies:
@@ -6907,6 +7338,10 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+redux-saga@^0.16.0:
+  version "0.16.0"
+  resolved "http://npm.s1.vynca.org/redux-saga/-/redux-saga-0.16.0/0a231db0a1489301dd980f6f2f88d8ced418f724.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
+
 redux@^3.7.2:
   version "3.7.2"
   resolved "http://npm.s1.vynca.org/redux/-/redux-3.7.2/06b73123215901d25d065be342eb026bc1c8537b.tgz#06b73123215901d25d065be342eb026bc1c8537b"
@@ -6915,6 +7350,10 @@ redux@^3.7.2:
     lodash-es "^4.2.1"
     loose-envify "^1.1.0"
     symbol-observable "^1.0.3"
+
+referrer-policy@1.1.0:
+  version "1.1.0"
+  resolved "http://npm.s1.vynca.org/referrer-policy/-/referrer-policy-1.1.0/35774eb735bf50fb6c078e83334b472350207d79.tgz#35774eb735bf50fb6c078e83334b472350207d79"
 
 regenerate@^1.2.1:
   version "1.3.3"
@@ -7141,6 +7580,16 @@ require-uncached@^1.0.2:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
 
+requires-port@1.0.x, requires-port@1.x.x, requires-port@~1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/requires-port/-/requires-port-1.0.0/925d2601d39ac485e091cf0da5c6e694dc3dcaff.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+resolve-cwd@^2.0.0:
+  version "2.0.0"
+  resolved "http://npm.s1.vynca.org/resolve-cwd/-/resolve-cwd-2.0.0/00a9f7387556e27038eae232caa372a6a59b665a.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
+  dependencies:
+    resolve-from "^3.0.0"
+
 resolve-dir@^0.1.0:
   version "0.1.1"
   resolved "http://npm.s1.vynca.org/resolve-dir/-/resolve-dir-0.1.1/b219259a5602fac5c5c496ad894a6e8cc430261e.tgz#b219259a5602fac5c5c496ad894a6e8cc430261e"
@@ -7155,6 +7604,14 @@ resolve-from@^1.0.0:
 resolve-from@^2.0.0:
   version "2.0.0"
   resolved "http://npm.s1.vynca.org/resolve-from/-/resolve-from-2.0.0/9480ab20e94ffa1d9e80a804c7ea147611966b57.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
+
+resolve-from@^3.0.0:
+  version "3.0.0"
+  resolved "http://npm.s1.vynca.org/resolve-from/-/resolve-from-3.0.0/b22c7af7d9d6881bc8b6e653335eebcb0a188748.tgz#b22c7af7d9d6881bc8b6e653335eebcb0a188748"
+
+resolve-pathname@^2.2.0:
+  version "2.2.0"
+  resolved "http://npm.s1.vynca.org/resolve-pathname/-/resolve-pathname-2.2.0/7e9ae21ed815fd63ab189adeee64dc831eefa879.tgz#7e9ae21ed815fd63ab189adeee64dc831eefa879"
 
 resolve@^1.1.6, resolve@^1.1.7, resolve@^1.2.0:
   version "1.5.0"
@@ -7279,6 +7736,16 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
+select-hose@^2.0.0:
+  version "2.0.0"
+  resolved "http://npm.s1.vynca.org/select-hose/-/select-hose-2.0.0/625d8658f865af43ec962bfc376a37359a4994ca.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
+
+selfsigned@^1.9.1:
+  version "1.10.1"
+  resolved "http://npm.s1.vynca.org/selfsigned/-/selfsigned-1.10.1/bf8cb7b83256c4551e31347c6311778db99eec52.tgz#bf8cb7b83256c4551e31347c6311778db99eec52"
+  dependencies:
+    node-forge "0.6.33"
+
 semver-diff@^2.0.0:
   version "2.1.0"
   resolved "http://npm.s1.vynca.org/semver-diff/-/semver-diff-2.1.0/4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36.tgz#4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36"
@@ -7323,6 +7790,10 @@ sequencify@~0.0.7:
   version "0.0.7"
   resolved "http://npm.s1.vynca.org/sequencify/-/sequencify-0.0.7/90cff19d02e07027fd767f5ead3e7b95d1e7380c.tgz#90cff19d02e07027fd767f5ead3e7b95d1e7380c"
 
+serialize-javascript@^1.4.0:
+  version "1.4.0"
+  resolved "http://npm.s1.vynca.org/serialize-javascript/-/serialize-javascript-1.4.0/7c958514db6ac2443a8abc062dc9f7886a7f6005.tgz#7c958514db6ac2443a8abc062dc9f7886a7f6005"
+
 serve-favicon@^2.4.5:
   version "2.4.5"
   resolved "http://npm.s1.vynca.org/serve-favicon/-/serve-favicon-2.4.5/49d9a46863153a9240691c893d2b0e7d85d6d436.tgz#49d9a46863153a9240691c893d2b0e7d85d6d436"
@@ -7332,6 +7803,18 @@ serve-favicon@^2.4.5:
     ms "2.0.0"
     parseurl "~1.3.2"
     safe-buffer "5.1.1"
+
+serve-index@^1.7.2:
+  version "1.9.1"
+  resolved "http://npm.s1.vynca.org/serve-index/-/serve-index-1.9.1/d3768d69b1e7d82e5ce050fff5b453bea12a9239.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
+  dependencies:
+    accepts "~1.3.4"
+    batch "0.6.1"
+    debug "2.6.9"
+    escape-html "~1.0.3"
+    http-errors "~1.6.2"
+    mime-types "~2.1.17"
+    parseurl "~1.3.2"
 
 serve-static@1.13.1:
   version "1.13.1"
@@ -7390,6 +7873,10 @@ shallowequal@^0.2.2:
   resolved "http://npm.s1.vynca.org/shallowequal/-/shallowequal-0.2.2/1e32fd5bcab6ad688a4812cb0cc04efc75c7014e.tgz#1e32fd5bcab6ad688a4812cb0cc04efc75c7014e"
   dependencies:
     lodash.keys "^3.1.2"
+
+shallowequal@^1.0.1:
+  version "1.0.2"
+  resolved "http://npm.s1.vynca.org/shallowequal/-/shallowequal-1.0.2/1561dbdefb8c01408100319085764da3fcf83f8f.tgz#1561dbdefb8c01408100319085764da3fcf83f8f"
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -7617,6 +8104,24 @@ snyk@^1.25.1:
     url "^0.11.0"
     uuid "^3.0.1"
 
+sockjs-client@1.1.4:
+  version "1.1.4"
+  resolved "http://npm.s1.vynca.org/sockjs-client/-/sockjs-client-1.1.4/5babe386b775e4cf14e7520911452654016c8b12.tgz#5babe386b775e4cf14e7520911452654016c8b12"
+  dependencies:
+    debug "^2.6.6"
+    eventsource "0.1.6"
+    faye-websocket "~0.11.0"
+    inherits "^2.0.1"
+    json3 "^3.3.2"
+    url-parse "^1.1.8"
+
+sockjs@0.3.18:
+  version "0.3.18"
+  resolved "http://npm.s1.vynca.org/sockjs/-/sockjs-0.3.18/d9b289316ca7df77595ef299e075f0f937eb4207.tgz#d9b289316ca7df77595ef299e075f0f937eb4207"
+  dependencies:
+    faye-websocket "^0.10.0"
+    uuid "^2.0.2"
+
 sort-keys@^1.0.0:
   version "1.1.2"
   resolved "http://npm.s1.vynca.org/sort-keys/-/sort-keys-1.1.2/441b6d4d346798f1b4e49e8920adfba0e543f9ad.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
@@ -7691,6 +8196,29 @@ spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "http://npm.s1.vynca.org/spdx-license-ids/-/spdx-license-ids-1.2.2/c9df7a3424594ade6bd11900d596696dc06bac57.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
+spdy-transport@^2.0.18:
+  version "2.0.20"
+  resolved "http://npm.s1.vynca.org/spdy-transport/-/spdy-transport-2.0.20/735e72054c486b2354fe89e702256004a39ace4d.tgz#735e72054c486b2354fe89e702256004a39ace4d"
+  dependencies:
+    debug "^2.6.8"
+    detect-node "^2.0.3"
+    hpack.js "^2.1.6"
+    obuf "^1.1.1"
+    readable-stream "^2.2.9"
+    safe-buffer "^5.0.1"
+    wbuf "^1.7.2"
+
+spdy@^3.4.1:
+  version "3.4.7"
+  resolved "http://npm.s1.vynca.org/spdy/-/spdy-3.4.7/42ff41ece5cc0f99a3a6c28aabb73f5c3b03acbc.tgz#42ff41ece5cc0f99a3a6c28aabb73f5c3b03acbc"
+  dependencies:
+    debug "^2.6.8"
+    handle-thing "^1.2.5"
+    http-deceiver "^1.2.7"
+    safe-buffer "^5.0.1"
+    select-hose "^2.0.0"
+    spdy-transport "^2.0.18"
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "http://npm.s1.vynca.org/sprintf-js/-/sprintf-js-1.0.3/04e6926f662895354f3dd015203633b857297e2c.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -7709,7 +8237,7 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
-stack-trace@0.0.x:
+stack-trace@0.0.x, stack-trace@^0.0.10:
   version "0.0.10"
   resolved "http://npm.s1.vynca.org/stack-trace/-/stack-trace-0.0.10/547c70b347e8d32b4e108ea1a2a159e5fdde19c0.tgz#547c70b347e8d32b4e108ea1a2a159e5fdde19c0"
 
@@ -7986,6 +8514,10 @@ through@^2.3.6, through@^2.3.8:
   version "2.3.8"
   resolved "http://npm.s1.vynca.org/through/-/through-2.3.8/0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
+thunky@^0.1.0:
+  version "0.1.0"
+  resolved "http://npm.s1.vynca.org/thunky/-/thunky-0.1.0/bf30146824e2b6e67b0f2d7a4ac8beb26908684e.tgz#bf30146824e2b6e67b0f2d7a4ac8beb26908684e"
+
 tildify@^1.0.0:
   version "1.2.0"
   resolved "http://npm.s1.vynca.org/tildify/-/tildify-1.2.0/dcec03f55dca9b7aa3e5b04f21817eb56e63588a.tgz#dcec03f55dca9b7aa3e5b04f21817eb56e63588a"
@@ -8142,6 +8674,10 @@ uid-number@0.0.6, uid-number@^0.0.6:
   version "0.0.6"
   resolved "http://npm.s1.vynca.org/uid-number/-/uid-number-0.0.6/0ea10e8035e8eb5b8e4449f06da1c730663baa81.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
+ultron@~1.1.0:
+  version "1.1.1"
+  resolved "http://npm.s1.vynca.org/ultron/-/ultron-1.1.1/9fe1536a10a664a65266a1e3ccf85fd36302bc9c.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
+
 umask@~1.1.0:
   version "1.1.0"
   resolved "http://npm.s1.vynca.org/umask/-/umask-1.1.0/f29cebf01df517912bb58ff9c4e50fde8e33320d.tgz#f29cebf01df517912bb58ff9c4e50fde8e33320d"
@@ -8253,6 +8789,20 @@ url-parse-lax@^1.0.0:
   dependencies:
     prepend-http "^1.0.1"
 
+url-parse@1.0.x:
+  version "1.0.5"
+  resolved "http://npm.s1.vynca.org/url-parse/-/url-parse-1.0.5/0854860422afdcfefeb6c965c662d4800169927b.tgz#0854860422afdcfefeb6c965c662d4800169927b"
+  dependencies:
+    querystringify "0.0.x"
+    requires-port "1.0.x"
+
+url-parse@^1.1.8:
+  version "1.2.0"
+  resolved "http://npm.s1.vynca.org/url-parse/-/url-parse-1.2.0/3a19e8aaa6d023ddd27dcc44cb4fc8f7fec23986.tgz#3a19e8aaa6d023ddd27dcc44cb4fc8f7fec23986"
+  dependencies:
+    querystringify "~1.0.0"
+    requires-port "~1.0.0"
+
 url@^0.11.0:
   version "0.11.0"
   resolved "http://npm.s1.vynca.org/url/-/url-0.11.0/3838e97cfc60521eb73c525a8e55bfdd9e2e28f1.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
@@ -8288,7 +8838,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "http://npm.s1.vynca.org/utils-merge/-/utils-merge-1.0.1/9f95710f50a267947b2ccc124741c1028427e713.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@^2.0.1:
+uuid@^2.0.1, uuid@^2.0.2:
   version "2.0.3"
   resolved "http://npm.s1.vynca.org/uuid/-/uuid-2.0.3/67e2e863797215530dff318e5bf9dcebfd47b21a.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
@@ -8320,6 +8870,10 @@ validate-npm-package-name@~2.2.2:
   resolved "http://npm.s1.vynca.org/validate-npm-package-name/-/validate-npm-package-name-2.2.2/f65695b22f7324442019a3c7fa39a6e7fd299085.tgz#f65695b22f7324442019a3c7fa39a6e7fd299085"
   dependencies:
     builtins "0.0.7"
+
+value-equal@^0.4.0:
+  version "0.4.0"
+  resolved "http://npm.s1.vynca.org/value-equal/-/value-equal-0.4.0/c5bdd2f54ee093c04839d71ce2e4758a6890abc7.tgz#c5bdd2f54ee093c04839d71ce2e4758a6890abc7"
 
 vary@~1.1.2:
   version "1.1.2"
@@ -8410,13 +8964,41 @@ watchpack@^1.4.0:
     chokidar "^1.7.0"
     graceful-fs "^4.1.2"
 
+wbuf@^1.1.0, wbuf@^1.7.2:
+  version "1.7.2"
+  resolved "http://npm.s1.vynca.org/wbuf/-/wbuf-1.7.2/d697b99f1f59512df2751be42769c1580b5801fe.tgz#d697b99f1f59512df2751be42769c1580b5801fe"
+  dependencies:
+    minimalistic-assert "^1.0.0"
+
 wcwidth@^1.0.0:
   version "1.0.1"
   resolved "http://npm.s1.vynca.org/wcwidth/-/wcwidth-1.0.1/f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
   dependencies:
     defaults "^1.0.3"
 
-webpack-dev-middleware@^1.12.0:
+webpack-bundle-analyzer@^2.9.1:
+  version "2.9.1"
+  resolved "http://npm.s1.vynca.org/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.9.1/c2c8e03e8e5768ed288b39ae9e27a8b8d7b9d476.tgz#c2c8e03e8e5768ed288b39ae9e27a8b8d7b9d476"
+  dependencies:
+    acorn "^5.1.1"
+    chalk "^1.1.3"
+    commander "^2.9.0"
+    ejs "^2.5.6"
+    express "^4.15.2"
+    filesize "^3.5.9"
+    gzip-size "^3.0.0"
+    lodash "^4.17.4"
+    mkdirp "^0.5.1"
+    opener "^1.4.3"
+    ws "^3.3.1"
+
+webpack-chunk-hash@^0.5.0:
+  version "0.5.0"
+  resolved "http://npm.s1.vynca.org/webpack-chunk-hash/-/webpack-chunk-hash-0.5.0/1dba38203d73c1e6ab069b6810a5a37402399dec.tgz#1dba38203d73c1e6ab069b6810a5a37402399dec"
+  dependencies:
+    "@types/webpack" "^3.0.5"
+
+webpack-dev-middleware@^1.11.0, webpack-dev-middleware@^1.12.0:
   version "1.12.2"
   resolved "http://npm.s1.vynca.org/webpack-dev-middleware/-/webpack-dev-middleware-1.12.2/f8fc1120ce3b4fc5680ceecb43d777966b21105e.tgz#f8fc1120ce3b4fc5680ceecb43d777966b21105e"
   dependencies:
@@ -8425,6 +9007,38 @@ webpack-dev-middleware@^1.12.0:
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
+
+webpack-dev-server@^2.9.5:
+  version "2.9.5"
+  resolved "http://npm.s1.vynca.org/webpack-dev-server/-/webpack-dev-server-2.9.5/79336fba0087a66ae491f4869f6545775b18daa8.tgz#79336fba0087a66ae491f4869f6545775b18daa8"
+  dependencies:
+    ansi-html "0.0.7"
+    array-includes "^3.0.3"
+    bonjour "^3.5.0"
+    chokidar "^1.6.0"
+    compression "^1.5.2"
+    connect-history-api-fallback "^1.3.0"
+    debug "^3.1.0"
+    del "^3.0.0"
+    express "^4.16.2"
+    html-entities "^1.2.0"
+    http-proxy-middleware "~0.17.4"
+    import-local "^0.1.1"
+    internal-ip "1.2.0"
+    ip "^1.1.5"
+    killable "^1.0.0"
+    loglevel "^1.4.1"
+    opn "^5.1.0"
+    portfinder "^1.0.9"
+    selfsigned "^1.9.1"
+    serve-index "^1.7.2"
+    sockjs "0.3.18"
+    sockjs-client "1.1.4"
+    spdy "^3.4.1"
+    strip-ansi "^3.0.1"
+    supports-color "^4.2.1"
+    webpack-dev-middleware "^1.11.0"
+    yargs "^6.6.0"
 
 webpack-hot-middleware@^2.20.0:
   version "2.21.0"
@@ -8468,6 +9082,17 @@ webpack@^3.8.1:
     watchpack "^1.4.0"
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
+
+websocket-driver@>=0.5.1:
+  version "0.7.0"
+  resolved "http://npm.s1.vynca.org/websocket-driver/-/websocket-driver-0.7.0/0caf9d2d755d93aee049d4bdd0d3fe2cca2a24eb.tgz#0caf9d2d755d93aee049d4bdd0d3fe2cca2a24eb"
+  dependencies:
+    http-parser-js ">=0.4.0"
+    websocket-extensions ">=0.1.1"
+
+websocket-extensions@>=0.1.1:
+  version "0.1.3"
+  resolved "http://npm.s1.vynca.org/websocket-extensions/-/websocket-extensions-0.1.3/5d2ff22977003ec687a4b87073dfbbac146ccf29.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
 
 whatwg-fetch@>=0.10.0:
   version "2.0.3"
@@ -8577,6 +9202,18 @@ write@^0.2.1:
   dependencies:
     mkdirp "^0.5.1"
 
+ws@^3.3.1:
+  version "3.3.2"
+  resolved "http://npm.s1.vynca.org/ws/-/ws-3.3.2/96c1d08b3fefda1d5c1e33700d3bfaa9be2d5608.tgz#96c1d08b3fefda1d5c1e33700d3bfaa9be2d5608"
+  dependencies:
+    async-limiter "~1.0.0"
+    safe-buffer "~5.1.0"
+    ultron "~1.1.0"
+
+x-xss-protection@1.0.0:
+  version "1.0.0"
+  resolved "http://npm.s1.vynca.org/x-xss-protection/-/x-xss-protection-1.0.0/898afb93869b24661cf9c52f9ee8db8ed0764dd9.tgz#898afb93869b24661cf9c52f9ee8db8ed0764dd9"
+
 xdg-basedir@^2.0.0:
   version "2.0.0"
   resolved "http://npm.s1.vynca.org/xdg-basedir/-/xdg-basedir-2.0.0/edbc903cc385fc04523d966a335504b5504d1bd2.tgz#edbc903cc385fc04523d966a335504b5504d1bd2"
@@ -8616,6 +9253,12 @@ yargs-parser@^2.4.1:
   dependencies:
     camelcase "^3.0.0"
     lodash.assign "^4.0.6"
+
+yargs-parser@^4.2.0:
+  version "4.2.1"
+  resolved "http://npm.s1.vynca.org/yargs-parser/-/yargs-parser-4.2.1/29cceac0dc4f03c6c87b4a9f217dd18c9f74871c.tgz#29cceac0dc4f03c6c87b4a9f217dd18c9f74871c"
+  dependencies:
+    camelcase "^3.0.0"
 
 yargs-parser@^5.0.0:
   version "5.0.0"
@@ -8670,6 +9313,24 @@ yargs@^4.3.2:
     window-size "^0.2.0"
     y18n "^3.2.1"
     yargs-parser "^2.4.1"
+
+yargs@^6.6.0:
+  version "6.6.0"
+  resolved "http://npm.s1.vynca.org/yargs/-/yargs-6.6.0/782ec21ef403345f830a808ca3d513af56065208.tgz#782ec21ef403345f830a808ca3d513af56065208"
+  dependencies:
+    camelcase "^3.0.0"
+    cliui "^3.2.0"
+    decamelize "^1.1.1"
+    get-caller-file "^1.0.1"
+    os-locale "^1.4.0"
+    read-pkg-up "^1.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^1.0.2"
+    which-module "^1.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^4.2.0"
 
 yargs@^7.0.0:
   version "7.1.0"

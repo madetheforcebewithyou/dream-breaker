@@ -6,7 +6,6 @@
 .gitignore
 .npmignore
 .nycrc
-
 /.idea
 /.git
 /.nyc_output
@@ -15,5 +14,6 @@
 /gulp-tasks
 /lib
 /dev
-
 gulpfile.babel.js
+npm-debug.log*
+yarn-error.log*
