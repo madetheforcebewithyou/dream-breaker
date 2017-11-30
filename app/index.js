@@ -9,7 +9,6 @@ export default function launchApp(config = {}) {
     config,
     {
       react: {
-        devTool: true,
         routes,
         redux,
       },

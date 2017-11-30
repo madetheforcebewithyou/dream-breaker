@@ -2,13 +2,13 @@ import _ from 'lodash';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { logger } from './../../lib';
 import { Html, DevTool } from './../components';
 
 function renderComponentToHtml({
-  store, routes, url, assets, context = {}, devTool,
+  store, routes, history, assets, devTool,
 }) {
   const devToolComponent = devTool ? (
     <Provider store={store}>
@@ -16,14 +16,9 @@ function renderComponentToHtml({
     </Provider>
   ) : null;
 
-  console.log(devTool, DevTool);
-
   return renderToStaticMarkup(
     <Provider store={store}>
-      <StaticRouter
-        location={url}
-        context={context}
-      >
+      <ConnectedRouter history={history}>
         <Html
           initialState={store.getState()}
           head={Helmet.rewind()}
@@ -31,7 +26,7 @@ function renderComponentToHtml({
           content={routes}
           devTool={devToolComponent}
         />
-      </StaticRouter>
+      </ConnectedRouter>
     </Provider>,
   );
 }
@@ -55,32 +50,32 @@ function prepareRendering(renderConfig) {
 }
 
 const reactRenderMiddleware = ({ assets, devTool }) => (req, res) => {
-  // prepare rendering
-  prepareRendering({
+  const renderConfig = {
     store: req.dreamBreaker.react.reduxStore,
     routes: req.dreamBreaker.react.routes,
-    url: req.url,
+    history: req.dreamBreaker.react.history,
     assets,
     devTool,
-  })
+  };
+
+  // prepare rendering
+  prepareRendering(renderConfig)
 
   // do rendering
   .then(() => {
-    const context = {};
-    const html = renderComponentToHtml({
-      store: req.dreamBreaker.react.reduxStore,
-      routes: req.dreamBreaker.react.routes,
-      url: req.url,
-      assets,
-      context,
-      devTool,
-    });
+    const html = renderComponentToHtml(renderConfig);
+    const router = renderConfig.store.getState().router;
 
-    if (context.url) {
-      res.redirect(context.url);
-    } else {
-      res.send(html);
+    // handle redirect
+    const originalUrl = req.url;
+    const newRedirectUrl = `${router.location.pathname}${router.location.search}`;
+    if (!_.isEqual(originalUrl, newRedirectUrl)) {
+      res.redirect(newRedirectUrl);
+      return;
     }
+
+    // send html to the client
+    res.send(`<!DOCTYPE html>${html}`);
   })
 
   // handle error
