@@ -4,10 +4,14 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import helmet from 'helmet';
 import { logger } from './../lib';
-import { reactRouteMiddleware, renderMiddleware } from './middlewares';
+import {
+  reactReduxMiddleware,
+  reactRouteMiddleware,
+  renderMiddleware,
+} from './middlewares';
 
 function configure(config) {
-  const { publicResource, reactSSR = {} } = config;
+  const { publicResource, react = {} } = config;
 
   const agent = express();
   agent.use(
@@ -34,10 +38,12 @@ function configure(config) {
     }));
   }
 
-  // react rendering
+  // react related middleware
+  const { routes, redux = {} } = react;
   agent.use([
-    reactRouteMiddleware({ routes: reactSSR.routes }),
-    renderMiddleware(),
+    reactReduxMiddleware(redux),
+    reactRouteMiddleware(routes),
+    renderMiddleware({}),
   ]);
 
   return agent;

@@ -13,7 +13,7 @@ export default class Html extends React.Component {
     head: PropTypes.object.isRequired,
     content: PropTypes.element,
     initialState: PropTypes.object,
-    dev: PropTypes.object,
+    devTool: PropTypes.object,
     assets: PropTypes.object,
   };
 
@@ -49,12 +49,12 @@ export default class Html extends React.Component {
   }
 
   get [_renderDevDom]() {
-    const { dev } = this.props;
-
-    if (_.isNil(dev)) {
+    const { devTool } = this.props;
+    if (_.isNil(devTool)) {
       return null;
     }
-    return <div id="dev">{dev}</div>;
+
+    return <div id="dev">{devTool}</div>;
   }
 
   render() {
