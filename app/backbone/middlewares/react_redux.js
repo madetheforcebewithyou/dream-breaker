@@ -1,9 +1,15 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 import createSagaMiddleware, { END } from 'redux-saga';
+import { DevTool } from './../components';
 
-function getEnhancer({ middlewares }) {
-  return applyMiddleware(...middlewares);
+function getEnhancer({ middlewares, devTool }) {
+  return devTool ?
+    compose(
+      applyMiddleware(...middlewares),
+      DevTool.instrument(),
+    ) :
+    applyMiddleware(...middlewares);
 }
 
 const reactReduxMiddleware = ({
@@ -12,6 +18,7 @@ const reactReduxMiddleware = ({
   rootMiddleware = [],
   rootReducer = {},
   rootSaga,
+  devTool,
 }) => (req, res, next) => {
   const sagaMiddleware = createSagaMiddleware();
 
@@ -30,7 +37,7 @@ const reactReduxMiddleware = ({
   const store = createStore(
     combineReducers(allReducers),
     initialState,
-    getEnhancer({ middlewares: allMiddlewares }),
+    getEnhancer({ middlewares: allMiddlewares, devTool }),
   );
   store.sagaEnd = () => store.dispatch(END);
 

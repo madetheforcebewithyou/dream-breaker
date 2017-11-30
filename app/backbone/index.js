@@ -7,11 +7,11 @@ import { logger } from './../lib';
 import {
   reactReduxMiddleware,
   reactRouteMiddleware,
-  renderMiddleware,
+  reactRenderMiddleware,
 } from './middlewares';
 
 function configure(config) {
-  const { publicResource, react = {} } = config;
+  const { publicResource, react = {}, assets = {} } = config;
 
   const agent = express();
   agent.use(
@@ -38,12 +38,12 @@ function configure(config) {
     }));
   }
 
-  // react related middleware
-  const { routes, redux = {} } = react;
+  // react related middlewares
+  const { routes, redux = {}, devTool } = react;
   agent.use([
-    reactReduxMiddleware(redux),
+    reactReduxMiddleware({ ...redux, devTool }),
     reactRouteMiddleware(routes),
-    renderMiddleware({}),
+    reactRenderMiddleware({ assets, devTool }),
   ]);
 
   return agent;

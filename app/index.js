@@ -1,13 +1,20 @@
+import _ from 'lodash';
 import backbone from './backbone';
 import routes from './frontend/routes';
 import redux from './frontend/redux';
 
-export default function launchApp(config) {
-  backbone({
-    ...config,
-    react: {
-      routes,
-      redux,
+export default function launchApp(config = {}) {
+  const launchConfig = _.merge(
+    {},
+    config,
+    {
+      react: {
+        devTool: true,
+        routes,
+        redux,
+      },
     },
-  });
+  );
+
+  backbone(launchConfig);
 }

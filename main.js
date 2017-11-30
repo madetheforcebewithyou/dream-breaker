@@ -3,6 +3,7 @@ const fs = require('fs');
 const {
   NODE_ENV,
   DREAM_BREAKER_SERVER_PORT = 12345,
+  DREAM_BREAKER_REDUX_DEV_TOOL,
 } = process.env;
 
 if (NODE_ENV === 'production') {
@@ -17,6 +18,9 @@ if (NODE_ENV === 'production') {
     require('babel-register')(babelConfig);
     require('./app').default({
       port: DREAM_BREAKER_SERVER_PORT,
+      react: {
+        devTool: JSON.parse(DREAM_BREAKER_REDUX_DEV_TOOL || false),
+      },
     });
   } catch (err) {
     console.error(err);

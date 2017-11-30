@@ -5,10 +5,18 @@ import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { logger } from './../../lib';
-import Html from './../html';
+import { Html, DevTool } from './../components';
 
-function renderComponentToHtml({ store, routes, url, assets, context = {} }) {
-  const initialState = store.getState();
+function renderComponentToHtml({
+  store, routes, url, assets, context = {}, devTool,
+}) {
+  const devToolComponent = devTool ? (
+    <Provider store={store}>
+      <DevTool />
+    </Provider>
+  ) : null;
+
+  console.log(devTool, DevTool);
 
   return renderToStaticMarkup(
     <Provider store={store}>
@@ -17,10 +25,11 @@ function renderComponentToHtml({ store, routes, url, assets, context = {} }) {
         context={context}
       >
         <Html
-          initialState={initialState}
+          initialState={store.getState()}
           head={Helmet.rewind()}
-          content={routes}
           assets={assets}
+          content={routes}
+          devTool={devToolComponent}
         />
       </StaticRouter>
     </Provider>,
@@ -29,6 +38,7 @@ function renderComponentToHtml({ store, routes, url, assets, context = {} }) {
 
 function prepareRendering(renderConfig) {
   const { sagaRunnings, store } = renderConfig;
+
   return Promise.resolve().then(() => {
     let tasks;
     try {
@@ -44,13 +54,14 @@ function prepareRendering(renderConfig) {
   .then((tasks) => Promise.all(tasks));
 }
 
-const renderMiddleware = ({ assets = {} }) => (req, res) => {
+const reactRenderMiddleware = ({ assets, devTool }) => (req, res) => {
   // prepare rendering
   prepareRendering({
     store: req.dreamBreaker.react.reduxStore,
     routes: req.dreamBreaker.react.routes,
     url: req.url,
     assets,
+    devTool,
   })
 
   // do rendering
@@ -62,6 +73,7 @@ const renderMiddleware = ({ assets = {} }) => (req, res) => {
       url: req.url,
       assets,
       context,
+      devTool,
     });
 
     if (context.url) {
@@ -89,4 +101,4 @@ const renderMiddleware = ({ assets = {} }) => (req, res) => {
   });
 };
 
-export default renderMiddleware;
+export default reactRenderMiddleware;

@@ -120,6 +120,9 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
+    "redux-devtools": "^3.4.1",
+    "redux-devtools-dock-monitor": "^1.1.2",
+    "redux-devtools-log-monitor": "^1.4.0",
     "redux-saga": "^0.16.0",
     "serialize-javascript": "^1.4.0",
     "stack-trace": "^0.0.10"

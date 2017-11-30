@@ -54,7 +54,7 @@ export default class Html extends React.Component {
       return null;
     }
 
-    return <div id="dev">{devTool}</div>;
+    return <div id="dev-tool">{devTool}</div>;
   }
 
   render() {
