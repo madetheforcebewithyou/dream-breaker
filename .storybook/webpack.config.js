@@ -4,14 +4,9 @@ const _ = require('lodash');
 
 const autoprefixerConfig = autoprefixer({
   browsers: [
-    'Android 2.3',
-    'Android >= 4',
-    'Chrome >= 35',
-    'Firefox >= 31',
-    'Explorer >= 9',
-    'iOS >= 7',
-    'Opera >= 12',
-    'Safari >= 7.1',
+    'Android >= 5',
+    'Explorer >= 10',
+    'iOS >= 10',
   ],
 });
 
@@ -50,27 +45,6 @@ module.exports = (config) => {
       },
     },
     {
-      test: /\.pdf$/,
-      loader: 'file-loader',
-      options: {
-        name: 'static/pdf/[name].[ext]',
-      },
-    },
-    {
-      test: /\.csv$/,
-      loader: 'file-loader',
-      options: {
-        name: 'static/csv/[name].[ext]',
-      },
-    },
-    {
-      test: /pdf\.worker\.min\.js/,
-      loader: 'file-loader',
-      options: {
-        name: 'static/[name].[ext]',
-      },
-    },
-    {
       test: /\.(svg|png|jpg|jpeg|gif)$/,
       loader: 'file-loader',
       options: {
@@ -78,7 +52,7 @@ module.exports = (config) => {
       },
     },
     {
-      test: /\.local\.scss$/,
+      test: /\.hash\.scss$/,
       use: [
         {
           loader: 'style-loader',
@@ -109,36 +83,7 @@ module.exports = (config) => {
       ],
     },
     {
-      test: /\.local\.nohash\.scss$/,
-      use: [
-        {
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
-          },
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: () => [
-              autoprefixerConfig,
-            ],
-            sourceMap: true,
-          },
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true,
-          },
-        },
-      ],
-    },
-    {
-      test: /\.global\.scss$/,
+      test: /\.nohash\.scss$/,
       use: [
         {
           loader: 'style-loader',

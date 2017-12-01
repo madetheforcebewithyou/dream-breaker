@@ -1,0 +1,12 @@
+$an-font-path: "./avenir-next/fonts";
+@import "./avenir-next/main";
+
+$and-font-path: "./avenir-next-demi/fonts";
+@import "./avenir-next-demi/main";
+
+$anm-font-path: "./avenir-next-medium/fonts";
+@import "./avenir-next-medium/main";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
+
