@@ -1,3 +1,4 @@
+import gulpUtil from 'gulp-util';
 import config from './config.js';
 import middleware from './hot_reload_middleware.js';
 
@@ -13,17 +14,23 @@ const hotReloadMiddleware = middleware({
 });
 
 export default function createApp() {
-  // eslint-disable-next-line import/no-dynamic-require
-  const app = require(config.appRoot).default;
+  let app = () => {};
 
-  return app({
-    hotReloadMiddleware,
-    assets: {
-      javascripts: ['/public/javascripts/app.js'],
-      stylesheets: ['/public/stylesheets/local.css'],
-    },
-    react: {
-      devTool: config.reduxDevTool,
-    },
-  });
+  try {
+    // eslint-disable-next-line import/no-dynamic-require
+    app = require(config.appRoot).default({
+      hotReloadMiddleware,
+      assets: {
+        javascripts: ['/public/javascripts/app.js'],
+        stylesheets: ['/public/stylesheets/local.css'],
+      },
+      react: {
+        devTool: config.reduxDevTool,
+      },
+    });
+  } catch (err) {
+    gulpUtil.log(err);
+  }
+
+  return app;
 }

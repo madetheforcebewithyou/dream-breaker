@@ -10,7 +10,7 @@ import createApp from './create_app.js';
 
 gulpHelp(gulp);
 
-gulp.task('dev:start', false, (done) => {
+gulp.task('dev:start', false, () => {
   const watcher = chokidar.watch(config.appRoot, {
     followSymlinks: false,
     alwaysStat: true,
@@ -25,15 +25,15 @@ gulp.task('dev:start', false, (done) => {
     let currentApp = createApp();
     const server = http.createServer(currentApp).listen(config.port, (err) => {
       if (err) {
-        gulpUtil.error(`cannot listen on ${config.port}`);
-        done(err);
+        gulpUtil.log(`cannot listen on ${config.port}`);
         return;
       }
 
       gulpUtil.log(`server listen on ${config.port}`);
 
       // watch
-      watcher.on('all', () => {
+      watcher.on('all', (event, file) => {
+        gulpUtil.log(`server reload, ${file} changed`);
         decache(config.appRoot);
 
         // reload

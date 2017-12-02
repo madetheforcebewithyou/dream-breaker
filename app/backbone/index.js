@@ -8,7 +8,6 @@ import {
   reactRouteMiddleware,
   reactRenderMiddleware,
 } from './middlewares';
-import test from './test.js';
 
 export default function backbone(config) {
   const {
@@ -50,8 +49,6 @@ export default function backbone(config) {
     }));
   }
 
-  agent.use('/test', test);
-
   // configure react related middlewares
   const { routes, redux = {}, devTool } = react;
 
@@ -66,18 +63,3 @@ export default function backbone(config) {
 
   return agent;
 }
-/*
-export default function launchServer(config) {
-  const { port } = config;
-
-  const server = configure(config).listen(port, (err) => {
-    if (err) {
-      logger.error(`cannot listen on ${port}`);
-    } else {
-      logger.info(`server start on ${port}`);
-    }
-  });
-
-  return server;
-}
-*/
