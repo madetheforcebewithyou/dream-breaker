@@ -15,7 +15,19 @@
   "plugins": [
     "transform-decorators-legacy",
     "transform-runtime",
-    "transform-async-to-generator"
+    "transform-async-to-generator",
+    [
+      "react-css-modules",
+      {
+        "filetypes": {
+          ".scss": {
+            "syntax": "postcss-scss"
+          }
+        },
+        "generateScopedName": "[name]_[local]_[hash:base64:5]",
+        "webpackHotModuleReloading": true
+      }
+    ]
   ],
   "env": {
     "test": {

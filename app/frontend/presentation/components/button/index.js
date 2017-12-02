@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { genId, shouldComponentUpdate } from './../../../enhance';
 
-import './styles/bootstrap.nohash.scss';
+import './styles/main.scss';
 
 const _className = Symbol();
 
@@ -25,7 +25,7 @@ export default class Button extends React.Component {
   get [_className]() {
     const { className } = this.props;
 
-    return _.compact(['btn', 'btn-default', 'db-button', className]).join(' ');
+    return _.compact(['btn', 'btn-default', className]).join(' ');
   }
 
   render() {
@@ -34,6 +34,7 @@ export default class Button extends React.Component {
     return (
       <button
         className={this[_className]}
+        styleName="db-button"
         onClick={onClick}
         type={type}
       >

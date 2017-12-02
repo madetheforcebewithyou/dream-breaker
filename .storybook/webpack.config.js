@@ -52,7 +52,7 @@ module.exports = (config) => {
       },
     },
     {
-      test: /\.hash\.scss$/,
+      test: /\.scss$/,
       use: [
         {
           loader: 'style-loader',
@@ -61,37 +61,7 @@ module.exports = (config) => {
           loader: 'css-loader',
           options: {
             sourceMap: true,
-            modules: true,
             localIdentName: '[name]_[local]_[hash:base64:5]',
-          },
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: () => [
-              autoprefixerConfig,
-            ],
-            sourceMap: true,
-          },
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true,
-          },
-        },
-      ],
-    },
-    {
-      test: /\.nohash\.scss$/,
-      use: [
-        {
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
           },
         },
         {

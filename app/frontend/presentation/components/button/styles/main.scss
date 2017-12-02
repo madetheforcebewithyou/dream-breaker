@@ -1,2 +1,8 @@
 @import '../../../stylesheets/bootstrap_core';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/buttons';
+
+:local .db-button {
+  &:focus, &:active {
+    outline: 0;
+  }
+}
