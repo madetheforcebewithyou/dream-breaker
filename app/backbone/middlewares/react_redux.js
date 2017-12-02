@@ -13,7 +13,7 @@ function getEnhancer({ middlewares, devTool }) {
     applyMiddleware(...middlewares);
 }
 
-const reactReduxMiddleware = ({
+export default ({
   initialState = {},
   rootMiddleware = [],
   rootReducer = {},
@@ -54,5 +54,3 @@ const reactReduxMiddleware = ({
 
   next();
 };
-
-export default reactReduxMiddleware;

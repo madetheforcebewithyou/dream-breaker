@@ -7,6 +7,8 @@ const _renderInitialState = Symbol();
 const _renderPolyfill = Symbol();
 const _renderContent = Symbol();
 const _renderDevDom = Symbol();
+const _renderStylesheets = Symbol();
+const _renderJavascripts = Symbol();
 
 export default class Html extends React.Component {
   static propTypes = {
@@ -19,7 +21,10 @@ export default class Html extends React.Component {
 
   getDefaultProps() {
     return {
-      assets: {},
+      assets: {
+        javascripts: [],
+        stylesheets: [],
+      },
     };
   }
 
@@ -57,8 +62,24 @@ export default class Html extends React.Component {
     return <div id="dev-tool">{devTool}</div>;
   }
 
+  get [_renderStylesheets]() {
+    const { assets } = this.props;
+
+    return _.map(assets.stylesheets, (stylesheet, idx) =>
+      <link key={`${stylesheet}-${idx}`} rel="stylesheet" href={stylesheet} />,
+    );
+  }
+
+  get [_renderJavascripts]() {
+    const { assets } = this.props;
+
+    return _.map(assets.javascripts, (javascript, idx) =>
+      <script key={`${javascript}-${idx}`} defer src={javascript} />,
+    );
+  }
+
   render() {
-    const { head, assets } = this.props;
+    const { head } = this.props;
 
     return (
       <html lang="en">
@@ -66,17 +87,14 @@ export default class Html extends React.Component {
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {head.link.toComponent()}
-          {assets.global ? <link rel="stylesheet" href={assets.global} /> : null}
-          {assets.local ? <link rel="stylesheet" href={assets.local} /> : null}
-          {assets.globalErrorHandler ? <script src={assets.globalErrorHandler} /> : null}
+          {this[_renderStylesheets]}
           {this[_renderPolyfill]}
         </head>
         <body>
           {this[_renderContent]}
           {this[_renderDevDom]}
           {this[_renderInitialState]}
-          {assets.vendor ? <script defer src={assets.vendor} /> : null}
-          {assets.app ? <script defer src={assets.app} /> : null}
+          {this[_renderJavascripts]}
         </body>
       </html>
     );

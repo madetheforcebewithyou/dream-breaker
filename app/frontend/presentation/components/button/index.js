@@ -2,7 +2,6 @@ import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { genId, shouldComponentUpdate } from './../../../enhance';
-
 import './styles/main.scss';
 
 const _className = Symbol();

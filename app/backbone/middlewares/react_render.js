@@ -49,7 +49,7 @@ function prepareRendering(renderConfig) {
   .then((tasks) => Promise.all(tasks));
 }
 
-const reactRenderMiddleware = ({ assets, devTool }) => (req, res) => {
+export default ({ assets, devTool }) => (req, res) => {
   const renderConfig = {
     store: req.dreamBreaker.react.reduxStore,
     routes: req.dreamBreaker.react.routes,
@@ -95,5 +95,3 @@ const reactRenderMiddleware = ({ assets, devTool }) => (req, res) => {
     res.redirect('/error');
   });
 };
-
-export default reactRenderMiddleware;

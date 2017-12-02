@@ -15,5 +15,5 @@ export default function launchApp(config = {}) {
     },
   );
 
-  backbone(launchConfig);
+  return backbone(launchConfig);
 }

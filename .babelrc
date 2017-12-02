@@ -35,6 +35,11 @@
         "istanbul"
       ]
     },
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
     "production": {
       "comments": false,
       "presets": [

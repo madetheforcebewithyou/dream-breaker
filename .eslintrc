@@ -7,7 +7,8 @@
   ],
   "env": {
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "browser": true
   },
   "parser": "babel-eslint",
   "rules": {
