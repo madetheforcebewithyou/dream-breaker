@@ -2,18 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from './presentation/components';
 
-const render = () => {
+const renderer = () => {
   ReactDOM.render(
     <Button buttonText="12ww" />,
     document.getElementById('root'),
   );
 };
 
-render();
+renderer();
 
 if (module.hot) {
-  module.hot.accept('./presentation/components/button/index.js', () => {
-    console.log('test');
-    render();
+  module.hot.accept(() => {
+    renderer();
   });
 }

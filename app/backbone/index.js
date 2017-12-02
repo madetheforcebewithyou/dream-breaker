@@ -11,7 +11,7 @@ import {
 
 export default function backbone(config) {
   const {
-    hotReloadMiddleware,
+    hmrMiddleware,
     publicResource,
     assets,
     react = {},
@@ -19,8 +19,8 @@ export default function backbone(config) {
 
   const agent = express();
   // configure the HMR middleware
-  if (hotReloadMiddleware) {
-    agent.use(hotReloadMiddleware);
+  if (hmrMiddleware) {
+    agent.use(hmrMiddleware);
   }
 
   // configure common middlewares
