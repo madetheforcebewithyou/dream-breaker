@@ -211,7 +211,11 @@
     "@types/tapable" "*"
     "@types/uglify-js" "*"
 
-abbrev@1, abbrev@^1.0.7, abbrev@~1.0.9:
+abbrev@1, abbrev@^1.0.7:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
+
+abbrev@~1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
 
