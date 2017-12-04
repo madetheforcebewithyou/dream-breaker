@@ -9,7 +9,7 @@ import {
   reactRenderMiddleware,
 } from './middlewares';
 
-export default function backbone(config) {
+export default function configureServer(config) {
   const {
     hmrMiddleware,
     publicResource,

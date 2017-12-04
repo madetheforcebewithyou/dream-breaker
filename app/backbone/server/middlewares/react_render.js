@@ -4,8 +4,8 @@ import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { logger } from './../../lib';
-import { Html, DevTool } from './../components';
+import { logger } from './../../../lib';
+import { Html, DevTool } from './../../share/components';
 
 function renderComponentToHtml({
   store, routes, history, assets, devTool,

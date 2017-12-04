@@ -26,7 +26,7 @@ const routes = (
     <Route exact path="/" component={() => <div>INDEX</div>} />
     <Route path="/A" component={A} />
     <Route path="/B" component={() => <div>B</div>} />
-    <Route path="/C" component={() => <div>D</div>} />
+    <Route path="/C" component={() => <div>C</div>} />
   </Switch>
 );
 

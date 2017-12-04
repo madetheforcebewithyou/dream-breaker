@@ -1,18 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button } from './presentation/components';
+import DreamBreakerClient from './../backbone/client';
+import routesRoot from './routes';
+import reduxRoot from './redux';
 
-const renderer = () => {
-  ReactDOM.render(
-    <Button buttonText="12ww" />,
-    document.getElementById('root'),
-  );
-};
+const client = new DreamBreakerClient({
+  routes: routesRoot,
+  redux: reduxRoot,
+});
 
-renderer();
+client.launch();
 
 if (module.hot) {
-  module.hot.accept(() => {
-    renderer();
+  module.hot.accept('./routes', () => {
+    client.hot({
+      routes: require('./routes').default,
+    });
+  });
+
+  module.hot.accept('./redux', () => {
+    client.hot({
+      redux: require('./redux').default,
+    });
   });
 }
