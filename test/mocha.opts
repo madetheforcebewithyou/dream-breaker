@@ -1,4 +1,4 @@
-app/**/__test__/index.js
+app/**/__test__/*.spec.js
 test/**/*.js
 --require test/setup
 --timeout 20000

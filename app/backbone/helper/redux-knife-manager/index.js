@@ -25,15 +25,14 @@ export default class ReduxKnifeManager {
 
   getRootReducer() {
     const reducers = {};
-    _.forEach(this[_knives], (namespace, knife) => {
+    _.forEach(this[_knives], (knife, namespace) => {
       reducers[namespace] = knife.reducer;
     });
 
     return combineReducers(reducers);
   }
 
-  add(config) {
-    const { namespace } = config;
+  add(namespace, config) {
     if (_.isNil(namespace)) {
       throw new Error('should specific the namespace.');
     }
