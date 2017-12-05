@@ -10,7 +10,7 @@ gulpHelp(gulp);
 const config = {
   jsPath: [
     'app/**/*.js',
-    '!app/**/*.spec.js',
+    '!app/**/__test__/*.js',
   ],
 };
 

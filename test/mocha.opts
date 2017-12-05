@@ -1,5 +1,4 @@
-app/init.spec.js
-app/**/*.spec.js
+app/**/__test__/index.js
 test/**/*.js
 --require test/setup
 --timeout 20000
