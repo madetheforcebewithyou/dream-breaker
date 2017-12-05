@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { knives } from './../redux/knives';
+import { Button } from './../presentation/components';
 
 @connect()
 class A extends React.Component {
@@ -25,7 +26,7 @@ const routes = (
   <Switch>
     <Route exact path="/" component={() => <div>INDEX</div>} />
     <Route path="/A" component={A} />
-    <Route path="/B" component={() => <div>B</div>} />
+    <Route path="/B" component={Button} />
     <Route path="/C" component={() => <div>C</div>} />
   </Switch>
 );

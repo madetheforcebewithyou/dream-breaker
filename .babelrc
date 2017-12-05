@@ -25,7 +25,8 @@
           }
         },
         "generateScopedName": "[name]_[local]_[hash:base64:5]",
-        "webpackHotModuleReloading": true
+        "webpackHotModuleReloading": true,
+        "removeImport": true
       }
     ]
   ],
