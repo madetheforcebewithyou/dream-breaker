@@ -64,7 +64,7 @@ export default class ReduxManager {
     return store;
   }
 
-  get store() {
+  getStore() {
     if (!this[_store]) {
       this[_store] = this[_configureStore]();
     }

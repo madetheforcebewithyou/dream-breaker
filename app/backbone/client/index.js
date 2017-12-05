@@ -50,7 +50,7 @@ export default class DreamBreakerClient {
     const rootElement = document.getElementById('root');
     if (rootElement) {
       ReactDOM.render(
-        <Provider store={this[_reduxMgr].store}>
+        <Provider store={this[_reduxMgr].getStore()}>
           <ConnectedRouter history={this[_history]}>
             {routes}
           </ConnectedRouter>
@@ -63,7 +63,7 @@ export default class DreamBreakerClient {
     const devToolElement = document.getElementById('dev-tool');
     if (devToolElement) {
       ReactDOM.render(
-        <Provider store={this[_reduxMgr].store}>
+        <Provider store={this[_reduxMgr].getStore()}>
           <DevTool />
         </Provider>,
         devToolElement,

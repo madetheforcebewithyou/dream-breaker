@@ -20,7 +20,7 @@ export default ({
 
   // setup req
   req.dreamBreaker.react = req.dreamBreaker.react || {};
-  req.dreamBreaker.react.reduxStore = reduxMgr.store;
+  req.dreamBreaker.react.reduxStore = reduxMgr.getStore();
   req.dreamBreaker.react.history = history;
 
   next();
