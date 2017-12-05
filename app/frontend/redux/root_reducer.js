@@ -1,3 +1,3 @@
-const rootReducer = {};
+import { rootReducer } from './knives';
 
 export default rootReducer;

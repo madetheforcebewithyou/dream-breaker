@@ -2,10 +2,10 @@ import _ from 'lodash';
 import KnifeMaker from './../';
 
 describe('test KnifeMaker selector', () => {
-  const prefix = 'my.test.knife.maker';
-  const knifeMaker = new KnifeMaker({ prefix });
+  const namespace = 'my-test-knife-maker';
+  const knifeMaker = new KnifeMaker({ namespace });
 
-  it('should get the empty action with empty namespace', () => {
+  it('should get the empty action with empty category', () => {
     const { selector } = knifeMaker.make({});
 
     selector.should.to.eql({});
@@ -13,20 +13,20 @@ describe('test KnifeMaker selector', () => {
 
   it('should only get the namesapce selector without defaultState', () => {
     const { selector } = knifeMaker.make({
-      namespace: 'hahaha',
+      category: 'hahaha',
     });
     selector.getHahaha.should.be.an('function');
   });
 
   it('should make selector successfully', () => {
-    const namespace = 'hahaha';
+    const category = 'hahaha';
     const defaultState = {
       name: 'lala',
       phone: 3345678,
     };
 
     const { selector } = knifeMaker.make({
-      namespace,
+      category,
       defaultState,
     });
 
@@ -36,14 +36,8 @@ describe('test KnifeMaker selector', () => {
       phone: 8765433,
     };
     const state = {
-      my: {
-        test: {
-          knife: {
-            maker: {
-              [namespace]: test,
-            },
-          },
-        },
+      'my-test-knife-maker': {
+        [category]: test,
       },
     };
 

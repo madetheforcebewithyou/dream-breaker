@@ -1,8 +1,8 @@
 import KnifeMaker from './../';
 
 describe('test KnifeMaker reducer', () => {
-  const prefix = 'my.test.knife.maker';
-  const knifeMaker = new KnifeMaker({ prefix });
+  const namespace = 'my-test-knife-maker';
+  const knifeMaker = new KnifeMaker({ namespace });
 
   const actionMap = [
     'increase',
@@ -26,7 +26,7 @@ describe('test KnifeMaker reducer', () => {
   let knife;
   it('should make reducer successfully', () => {
     knife = knifeMaker.make({
-      namespace: 'haha',
+      category: 'haha',
       defaultState,
       actionMap,
       reducerMap,

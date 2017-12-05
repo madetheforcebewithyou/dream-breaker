@@ -17,17 +17,17 @@ describe('test ReduxKnifeManager.getKnives()', () => {
     const config3 = generateConfig();
 
 
-    reduxKnifeManager.add(config1.namespace, config1.config);
-    reduxKnifeManager.add(config2.namespace, config2.config);
-    reduxKnifeManager.add(config3.namespace, config3.config);
+    reduxKnifeManager.add(config1.category, config1.config);
+    reduxKnifeManager.add(config2.category, config2.config);
+    reduxKnifeManager.add(config3.category, config3.config);
 
     const knives = reduxKnifeManager.getKnives();
-    _.forEach([config1.namespace, config2.namespace, config3.namespace], (namespace) => {
-      knives[namespace].should.be.an('object');
-      knives[namespace].action.should.be.an('object');
-      knives[namespace].actionType.should.be.an('object');
-      knives[namespace].reducer.should.be.an('function');
-      knives[namespace].selector.should.be.an('object');
+    _.forEach([config1.category, config2.category, config3.category], (category) => {
+      knives[category].should.be.an('object');
+      knives[category].action.should.be.an('object');
+      knives[category].actionType.should.be.an('object');
+      knives[category].reducer.should.be.an('function');
+      knives[category].selector.should.be.an('object');
     });
   });
 });

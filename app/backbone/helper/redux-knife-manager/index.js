@@ -2,21 +2,23 @@ import _ from 'lodash';
 import { combineReducers } from 'redux';
 import KnifeMaker from './knife-maker';
 
-const _defaultPrefix = Symbol();
+const _config = Symbol();
 const _knifeMaker = Symbol();
-
+const _namespace = Symbol();
 const _knives = Symbol();
 
 export default class ReduxKnifeManager {
   constructor(config = {}) {
-    const { prefix } = config;
+    this[_config] = config;
 
-    this[_knifeMaker] = new KnifeMaker({ prefix: prefix || this[_defaultPrefix] });
+    this[_knifeMaker] = new KnifeMaker({ namespace: this[_namespace] });
     this[_knives] = {};
   }
 
-  get [_defaultPrefix]() {
-    return 'app';
+  get [_namespace]() {
+    const { namespace } = this[_config];
+
+    return _.camelCase(namespace || 'app');
   }
 
   getKnives() {
@@ -25,18 +27,20 @@ export default class ReduxKnifeManager {
 
   getRootReducer() {
     const reducers = {};
-    _.forEach(this[_knives], (knife, namespace) => {
-      reducers[namespace] = knife.reducer;
+    _.forEach(this[_knives], (knife, category) => {
+      reducers[category] = knife.reducer;
     });
 
-    return combineReducers(reducers);
+    return {
+      [this[_namespace]]: combineReducers(reducers),
+    };
   }
 
-  add(namespace, config) {
-    if (_.isNil(namespace)) {
-      throw new Error('should specific the namespace.');
+  add(category, config) {
+    if (_.isNil(category)) {
+      throw new Error('should specific the category.');
     }
 
-    this[_knives][namespace] = this[_knifeMaker].make(config);
+    this[_knives][category] = this[_knifeMaker].make({ category, ...config });
   }
 }

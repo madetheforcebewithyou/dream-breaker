@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { push } from 'react-router-redux';
+import { knives } from './../redux/knives';
 
 @connect()
 class A extends React.Component {
@@ -12,7 +12,7 @@ class A extends React.Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
-    dispatch(push('/C'));
+    dispatch(knives.test1.action.increaseTest1());
   }
 
   render() {

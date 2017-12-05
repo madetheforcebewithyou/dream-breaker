@@ -1,30 +1,33 @@
 import _ from 'lodash';
 
-const _prefix = Symbol();
-const _defaultPrefix = Symbol();
+const _config = Symbol();
+const _namespace = Symbol();
 const _makeAction = Symbol();
 const _makeSelector = Symbol();
 const _makeReducer = Symbol();
 
 export default class KnifeMaker {
   constructor(config = {}) {
-    const { prefix } = config;
-
-    this[_prefix] = prefix || this[_defaultPrefix];
+    this[_config] = config;
   }
 
-  get [_defaultPrefix]() {
-    return 'app';
+  get [_namespace]() {
+    const { namespace } = this[_config];
+
+    return _.camelCase(namespace || 'app');
   }
 
-  [_makeAction]({ namespace, actionMap }) {
+  [_makeAction]({ category, actionMap }) {
     const action = {};
     const actionType = {};
 
     // make action and actionType
     _.forEach(actionMap, (name) => {
-      // a.b.c.${namespace}.${name} => A_B_C_${NAMESPACE}_${NAME}
-      const constant = _.snakeCase(`${this[_prefix]}.${namespace}.${name}`).toUpperCase();
+      // a.b.c.${category}.${name} => A_B_C_${category}_${NAME}
+      const snakeNamespace = _.snakeCase(this[_namespace]);
+      const snakeCategory = _.snakeCase(category);
+      const snakeName = _.snakeCase(name);
+      const constant = `${snakeNamespace}_${snakeCategory}_${snakeName}`.toUpperCase();
 
       // create actionMap
       action[name] = (payload = {}) => ({
@@ -55,29 +58,31 @@ export default class KnifeMaker {
     };
   }
 
-  [_makeSelector]({ namespace, defaultState }) {
-    if (_.isEmpty(this[_prefix]) || _.isEmpty(namespace)) {
+  [_makeSelector]({ category, defaultState }) {
+    if (_.isEmpty(this[_namespace]) || _.isEmpty(category)) {
       return {};
     }
 
-    // create namespace selector
+    // create category selector
     const selector = {};
-    const namespacePrefix = _.camelCase(`get_${namespace}`);
-    selector[namespacePrefix] = (state) => _.at(state, `${this[_prefix]}.${namespace}`)[0];
+    const categoryNamespace = _.camelCase(`get_${category}`);
+    selector[categoryNamespace] = (state) =>
+      _.at(state, `${this[_namespace]}.${category}`)[0];
 
     // create property selector
     _.forEach(defaultState, (value, key) => {
-      const functionName = _.camelCase(`${namespacePrefix}_${key}`);
-      selector[functionName] = (state) => _.at(state, `${this[_prefix]}.${namespace}.${key}`)[0];
+      const functionName = _.camelCase(`${categoryNamespace}_${key}`);
+      selector[functionName] = (state) =>
+        _.at(state, `${this[_namespace]}.${category}.${key}`)[0];
     });
 
     return selector;
   }
 
-  make({ namespace, defaultState, actionMap, reducerMap }) {
-    const { action, actionType } = this[_makeAction]({ namespace, actionMap });
+  make({ category, defaultState, actionMap, reducerMap }) {
+    const { action, actionType } = this[_makeAction]({ category, actionMap });
     const reducer = this[_makeReducer]({ defaultState, actionType, reducerMap });
-    const selector = this[_makeSelector]({ namespace, defaultState });
+    const selector = this[_makeSelector]({ category, defaultState });
 
     return {
       action,

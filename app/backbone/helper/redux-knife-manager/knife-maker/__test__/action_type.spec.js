@@ -2,9 +2,9 @@ import _ from 'lodash';
 import KnifeMaker from './../';
 
 describe('test KnifeMaker actionType', () => {
-  const prefix = 'my.test.knife.maker';
-  const knifeMaker = new KnifeMaker({ prefix });
-  const constantPrefix = _.join(_.split(prefix, '.'), '_').toUpperCase();
+  const namespace = 'my-test-knife-maker';
+  const knifeMaker = new KnifeMaker({ namespace });
+  const constantnamespace = _.join(_.split(namespace, '-'), '_').toUpperCase();
 
   it('should get the empty actionType with empty actionMap', () => {
     const { action } = knifeMaker.make({});
@@ -14,7 +14,7 @@ describe('test KnifeMaker actionType', () => {
 
   it('should make actionType successfully', () => {
     const { actionType } = knifeMaker.make({
-      namespace: 'hahaha',
+      category: 'hahaha',
       actionMap: [
         'testA1',
         'testB2',
@@ -23,9 +23,9 @@ describe('test KnifeMaker actionType', () => {
     });
 
     const testcases = [
-      { action: actionType.testA1, result: `${constantPrefix}_HAHAHA_TEST_A_1` },
-      { action: actionType.testB2, result: `${constantPrefix}_HAHAHA_TEST_B_2` },
-      { action: actionType.testC3, result: `${constantPrefix}_HAHAHA_TEST_C_3` },
+      { action: actionType.testA1, result: `${constantnamespace}_HAHAHA_TEST_A_1` },
+      { action: actionType.testB2, result: `${constantnamespace}_HAHAHA_TEST_B_2` },
+      { action: actionType.testC3, result: `${constantnamespace}_HAHAHA_TEST_C_3` },
     ];
     _.forEach((testcases), ({ action, result }) => action.should.to.eql(result));
   });
