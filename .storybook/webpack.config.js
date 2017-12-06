@@ -41,6 +41,9 @@ module.exports = (config) => {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: /(node_modules)/,
+      options: {
+        forceEnv: 'client_development',
+      },
     },
     {
       test: /\.(otf|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

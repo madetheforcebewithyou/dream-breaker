@@ -57,9 +57,9 @@ export default {
    },
    */
   output: {
-    publicPath: config.jsPublicPath,
-    filename: '[name].js',
-    chunkFilename: '[name].js',
+    publicPath: config.publicPath,
+    filename: 'javascripts/[name].js',
+    chunkFilename: 'javascripts/[name].js',
   },
   module: {
     rules: [

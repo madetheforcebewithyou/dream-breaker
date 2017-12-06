@@ -14,9 +14,7 @@ export default function createApp() {
         stylesheets: ['/public/stylesheets/local.css'],
       },
       publicResources: {
-        js: {
-          path: config.jsPublicPath,
-        },
+        publicPath: config.publicPath,
       },
       react: {
         loadableFilePath: config.loadableFilePath,

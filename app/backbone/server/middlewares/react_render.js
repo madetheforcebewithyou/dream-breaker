@@ -5,41 +5,27 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { renderToStaticMarkup } from 'react-dom/server';
 import Loadable from 'react-loadable';
+import path from 'path';
 import { getBundles } from 'react-loadable/webpack';
 import { logger } from './../../../lib';
 import { Html, DevTool } from './../../share/components';
 
-const modules = [];
-
-function captureModules(moduleName) {
-  modules.push(moduleName);
-}
-
-function prepareLoadable({
-  loadableFilePath, publicResources, assets, ...otherConfig
+function getLoadableBundles({
+  loadableFilePath, publicResources, assets, modules,
 }) {
-  let { routes } = otherConfig;
-  routes = (
-    <Loadable.Capture
-      report={captureModules}
-    >
-      {routes}
-    </Loadable.Capture>
-  );
-
   // eslint-disable-next-line import/no-dynamic-require
   const bundles = getBundles(require(loadableFilePath), modules);
-  const { javascripts, stylesheets } = assets;
+  const javascripts = [];
 
   // TODO: code splitting for stylesheets
-  const jsPublicPath = _.at(publicResources, 'js.path')[0];
+  const { publicPath } = publicResources;
   _.forEach(bundles, (bundle) => {
     if (bundle.file.endsWith('.js')) {
-      javascripts.push(`${jsPublicPath}${bundle.file}`);
+      javascripts.push(path.join(publicPath, bundle.file));
     }
   });
 
-  return { ...otherConfig, routes, assets: { javascripts, stylesheets } };
+  return _.merge({}, assets, { javascripts });
 }
 
 function renderComponentToHtml({
@@ -67,12 +53,23 @@ function renderComponentToHtml({
 }
 
 function prepareRendering(renderConfig) {
-  const { sagaRunnings, store } = renderConfig;
+  const { sagaRunnings, store, routes } = renderConfig;
+  const modules = [];
 
-  return Promise.resolve().then(() => {
+  return Promise.resolve()
+  .then(() => (
+    <Loadable.Capture
+      report={(moduleName) => {
+        modules.push(moduleName);
+      }}
+    >
+      {routes}
+    </Loadable.Capture>
+  ))
+  .then((contents) => {
     let tasks;
     try {
-      renderComponentToHtml(renderConfig);
+      renderComponentToHtml({ ...renderConfig, routes: contents });
       tasks = _.map(sagaRunnings, (task) => task.done);
       store.sagaEnd();
     } catch (err) {
@@ -81,7 +78,8 @@ function prepareRendering(renderConfig) {
 
     return tasks;
   })
-  .then((tasks) => Promise.all(tasks));
+  .then((tasks) => Promise.all(tasks))
+  .then(() => (modules));
 }
 
 export default ({ assets, devTool, loadableFilePath, publicResources }) => (req, res) => {
@@ -99,9 +97,9 @@ export default ({ assets, devTool, loadableFilePath, publicResources }) => (req,
   prepareRendering(renderConfig)
 
   // do rendering
-  .then(() => {
-    const loadableConfig = prepareLoadable(renderConfig);
-    const html = renderComponentToHtml(loadableConfig);
+  .then((modules) => {
+    const newAssets = getLoadableBundles({ ...renderConfig, modules });
+    const html = renderComponentToHtml({ ...renderConfig, assets: newAssets });
     const router = renderConfig.store.getState().router;
 
     // handle redirect

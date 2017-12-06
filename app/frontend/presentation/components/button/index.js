@@ -12,7 +12,7 @@ export default class Button extends React.Component {
   static propTypes = {
     onClick: PropTypes.func.isRequired,
     className: PropTypes.string,
-    buttonText: PropTypes.string,
+    children: PropTypes.nodes,
     type: PropTypes.string,
   };
 
@@ -28,7 +28,7 @@ export default class Button extends React.Component {
   }
 
   render() {
-    const { onClick, buttonText, type } = this.props;
+    const { onClick, children, type } = this.props;
 
     return (
       <button
@@ -37,7 +37,7 @@ export default class Button extends React.Component {
         onClick={onClick}
         type={type}
       >
-        {buttonText}
+        {children}
       </button>
     );
   }

@@ -16,20 +16,7 @@
     "react-loadable/babel",
     "transform-decorators-legacy",
     "transform-runtime",
-    "transform-async-to-generator",
-    [
-      "react-css-modules",
-      {
-        "filetypes": {
-          ".scss": {
-            "syntax": "postcss-scss"
-          }
-        },
-        "generateScopedName": "[name]_[local]_[hash:base64:5]",
-        "webpackHotModuleReloading": true,
-        "removeImport": true
-      }
-    ]
+    "transform-async-to-generator"
   ],
   "env": {
     "test": {
@@ -39,11 +26,36 @@
     },
     "server_development": {
       "plugins": [
-        "dynamic-import-node"
+        "dynamic-import-node",
+        [
+          "react-css-modules",
+          {
+            "filetypes": {
+              ".scss": {
+                "syntax": "postcss-scss"
+              }
+            },
+            "generateScopedName": "[name]_[local]_[hash:base64:5]",
+            "webpackHotModuleReloading": true,
+            "removeImport": true
+          }
+        ]
       ]
     },
     "client_development": {
       "plugins": [
+        [
+          "react-css-modules",
+          {
+            "filetypes": {
+              ".scss": {
+                "syntax": "postcss-scss"
+              }
+            },
+            "generateScopedName": "[name]_[local]_[hash:base64:5]",
+            "webpackHotModuleReloading": true
+          }
+        ]
       ]
     },
     "production": {
