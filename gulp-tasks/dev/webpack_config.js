@@ -1,6 +1,8 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import { ReactLoadablePlugin } from 'react-loadable/webpack';
 import autoprefixer from 'autoprefixer';
 import webpack from 'webpack';
+import path from 'path';
 import config from './config.js';
 
 const extractLocal = new ExtractTextPlugin({
@@ -27,6 +29,10 @@ const defineEnviroments = new webpack.EnvironmentPlugin([
   'DREAM_BREAKER_FRONTEND_ENTRY_POINT',
 ]);
 
+const reactLoadable = new ReactLoadablePlugin({
+  filename: path.resolve(__dirname, 'loadable.json'),
+});
+
 export default {
   entry: {
     app: [
@@ -40,27 +46,30 @@ export default {
   target: 'web',
   devtool: 'eval',
   /*
-  resolve: {
-    modules: [
-      path.resolve(__dirname, './../../../../app'),
-      'node_modules',
-    ],
-    alias: {
-      react: path.resolve(__dirname, './../../../../node_modules', 'react'),
-    },
-  },
-  */
+   resolve: {
+   modules: [
+   path.resolve(__dirname, './../../../../app'),
+   'node_modules',
+   ],
+   alias: {
+   react: path.resolve(__dirname, './../../../../node_modules', 'react'),
+   },
+   },
+   */
   output: {
-    publicPath: '/public/',
-    filename: 'javascripts/[name].js',
-    chunkFilename: 'javascripts/[name].js',
+    publicPath: config.jsPublicPath,
+    filename: '[name].js',
+    chunkFilename: '[name].js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: ['babel-loader'],
+        loader: 'babel-loader',
         exclude: /(node_modules)/,
+        options: {
+          forceEnv: 'client_development',
+        },
       },
       {
         test: /\.ico$/,
@@ -119,6 +128,7 @@ export default {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    reactLoadable,
     extractLocal,
     defineEnviroments,
   ],

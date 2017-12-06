@@ -13,6 +13,8 @@ export default function createApp() {
         javascripts: ['/public/javascripts/app.js'],
         stylesheets: ['/public/stylesheets/local.css'],
       },
+      loadableFile: config.loadableFilePath,
+      jsPublicPath: config.jsPublicPath,
       react: {
         devTool: config.reduxDevTool,
       },

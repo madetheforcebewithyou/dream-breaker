@@ -22,11 +22,12 @@
     "dev": {
       "command": "gulp dev",
       "env": {
-        "NODE_ENV": "development",
+        "NODE_ENV": "server_development",
         "DREAM_BREAKER_SERVER_PORT": 3000,
         "DREAM_BREAKER_REDUX_DEV_TOOL": "true",
         "DREAM_BREAKER_APP_ROOT": "app",
-        "DREAM_BREAKER_FRONTEND_ENTRY_POINT": "app/frontend/index.js"
+        "DREAM_BREAKER_FRONTEND_ENTRY_POINT": "app/frontend/index.js",
+        "DREAM_BREAKER_JS_PUBLIC_PATH": "/public/javascripts/"
       }
     },
     "test": {
@@ -60,6 +61,7 @@
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.1",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-react-css-modules": "^3.3.2",
@@ -126,6 +128,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
+    "react-loadable": "^5.3.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "next",

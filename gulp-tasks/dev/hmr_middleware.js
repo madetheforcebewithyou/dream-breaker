@@ -10,8 +10,12 @@ export default [
     publicPath: webpackConfig.output.publicPath,
     stats: {
       colors: true,
-      chunks: false,
-      'errors-only': true,
+      all: false,
+      errors: true,
+      errorDetails: true,
+      hash: true,
+      version: true,
+      assets: true,
     },
   }),
   webpackHotMiddleware(compiler, {

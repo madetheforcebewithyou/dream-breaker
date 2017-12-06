@@ -4,8 +4,42 @@ import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { renderToStaticMarkup } from 'react-dom/server';
+import Loadable from 'react-loadable';
+import { getBundles } from 'react-loadable/webpack';
 import { logger } from './../../../lib';
 import { Html, DevTool } from './../../share/components';
+
+const modules = [];
+
+function captureModules(moduleName) {
+  modules.push(moduleName);
+}
+
+function prepareLoadable({
+  loadableFile, jsPublicPath, assets, ...otherConfig
+}) {
+  let { routes } = otherConfig;
+  routes = (
+    <Loadable.Capture
+      report={captureModules}
+    >
+      {routes}
+    </Loadable.Capture>
+  );
+
+  // eslint-disable-next-line import/no-dynamic-require
+  const bundles = getBundles(require(loadableFile), modules);
+  const { javascripts, stylesheets } = assets;
+
+  // TODO: code splitting for stylesheets
+  _.forEach(bundles, (bundle) => {
+    if (bundle.file.endsWith('.js')) {
+      javascripts.push(`${jsPublicPath}${bundle.file}`);
+    }
+  });
+
+  return { ...otherConfig, routes, assets: { javascripts, stylesheets } };
+}
 
 function renderComponentToHtml({
   store, routes, history, assets, devTool,
@@ -49,13 +83,15 @@ function prepareRendering(renderConfig) {
   .then((tasks) => Promise.all(tasks));
 }
 
-export default ({ assets, devTool }) => (req, res) => {
+export default ({ assets, devTool, loadableFile, jsPublicPath }) => (req, res) => {
   const renderConfig = {
     store: req.dreamBreaker.react.reduxStore,
     routes: req.dreamBreaker.react.routes,
     history: req.dreamBreaker.react.history,
     assets,
     devTool,
+    loadableFile,
+    jsPublicPath,
   };
 
   // prepare rendering
@@ -63,7 +99,8 @@ export default ({ assets, devTool }) => (req, res) => {
 
   // do rendering
   .then(() => {
-    const html = renderComponentToHtml(renderConfig);
+    const loadableConfig = prepareLoadable(renderConfig);
+    const html = renderComponentToHtml(loadableConfig);
     const router = renderConfig.store.getState().router;
 
     // handle redirect

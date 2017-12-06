@@ -13,6 +13,7 @@
     "react"
   ],
   "plugins": [
+    "react-loadable/babel",
     "transform-decorators-legacy",
     "transform-runtime",
     "transform-async-to-generator",
@@ -36,7 +37,12 @@
         "istanbul"
       ]
     },
-    "development": {
+    "server_development": {
+      "plugins": [
+        "dynamic-import-node"
+      ]
+    },
+    "client_development": {
       "plugins": [
       ]
     },

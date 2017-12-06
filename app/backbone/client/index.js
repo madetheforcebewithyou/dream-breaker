@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Loadable from 'react-loadable';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { createBrowserHistory, createHashHistory } from 'history';
@@ -49,20 +50,23 @@ export default class DreamBreakerClient {
     // render root
     const rootElement = document.getElementById('root');
     if (rootElement) {
-      ReactDOM.render(
-        <Provider store={this[_reduxMgr].getStore()}>
-          <ConnectedRouter history={this[_history]}>
-            {routes}
-          </ConnectedRouter>
-        </Provider>,
-        rootElement,
-      );
+      Loadable.preloadReady()
+      .then(() => {
+        ReactDOM.hydrate(
+          <Provider store={this[_reduxMgr].getStore()}>
+            <ConnectedRouter history={this[_history]}>
+              {routes}
+            </ConnectedRouter>
+          </Provider>,
+          rootElement,
+        );
+      });
     }
 
     // render dev tool
     const devToolElement = document.getElementById('dev-tool');
     if (devToolElement) {
-      ReactDOM.render(
+      ReactDOM.hydrate(
         <Provider store={this[_reduxMgr].getStore()}>
           <DevTool />
         </Provider>,

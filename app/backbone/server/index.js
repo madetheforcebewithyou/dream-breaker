@@ -15,6 +15,8 @@ export default function configureServer(config) {
     publicResource,
     assets,
     react = {},
+    loadableFile,
+    jsPublicPath,
   } = config;
 
   const agent = express();
@@ -58,6 +60,8 @@ export default function configureServer(config) {
     reactRenderMiddleware({
       assets,
       devTool,
+      loadableFile,
+      jsPublicPath,
     }),
   ]);
 

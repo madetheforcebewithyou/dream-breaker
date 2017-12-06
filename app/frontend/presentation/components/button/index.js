@@ -6,7 +6,7 @@ import './styles/main.scss';
 
 const _className = Symbol();
 
-@genId('text')
+@genId('db-button')
 @shouldComponentUpdate
 export default class Button extends React.Component {
   static propTypes = {
