@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -12,11 +13,9 @@ import {
 export default function configureServer(config) {
   const {
     hmrMiddleware,
-    publicResource,
     assets,
+    publicResources = {},
     react = {},
-    loadableFile,
-    jsPublicPath,
   } = config;
 
   const agent = express();
@@ -43,16 +42,17 @@ export default function configureServer(config) {
     next();
   });
 
-  // configure public resources
-  if (publicResource) {
-    const { path, maxAge = 0 } = publicResource;
-    agent.use('/public', express.static(path, {
+  // configure the static files
+  const staticResourceConfig = _.at(publicResources, 'static')[0];
+  if (staticResourceConfig) {
+    const { route = '/public', maxAge = 0, path } = staticResourceConfig;
+    agent.use(route, express.static(path, {
       maxAge,
     }));
   }
 
   // configure react related middlewares
-  const { routes, redux = {}, devTool } = react;
+  const { routes, redux = {}, devTool, loadableFilePath } = react;
 
   agent.use([
     reactReduxMiddleware({ ...redux, devTool }),
@@ -60,8 +60,8 @@ export default function configureServer(config) {
     reactRenderMiddleware({
       assets,
       devTool,
-      loadableFile,
-      jsPublicPath,
+      loadableFilePath,
+      publicResources,
     }),
   ]);
 

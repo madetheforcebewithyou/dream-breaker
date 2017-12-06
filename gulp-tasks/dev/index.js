@@ -12,44 +12,40 @@ import createApp from './create_app.js';
 gulpHelp(gulp);
 
 gulp.task('dev:start', false, () => {
-  const watcher = chokidar.watch([config.appRoot, config.loadableFilePath], {
-    followSymlinks: false,
-    alwaysStat: true,
-    atomic: true,
-    awaitWriteFinish: {
-      stabilityThreshold: 1000,
-      pollInterval: 100,
-    },
-  });
-
-  watcher.on('ready', () => {
+  Loadable.preloadAll()
+  // create server
+  .then(() => {
     let currentApp = createApp();
 
-    Loadable.preloadAll()
-    .then(() => {
-      const server = http.createServer(currentApp).listen(config.port, (err) => {
-        if (err) {
-          gulpUtil.log(`cannot listen on ${config.port}`);
-          return;
-        }
+    const server = http.createServer(currentApp).listen(config.port, (err) => {
+      if (err) {
+        throw err;
+      }
 
-        gulpUtil.log(`server listen on ${config.port}`);
+      gulpUtil.log(`server listen on ${config.port}`);
+      chokidar.watch([config.appRoot, config.loadableFilePath], {
+        followSymlinks: false,
+        alwaysStat: true,
+        atomic: true,
+        awaitWriteFinish: {
+          stabilityThreshold: 1000,
+          pollInterval: 100,
+        },
+      })
+      .on('change', (file) => {
+        gulpUtil.log(`server reload, ${file} changed`);
+        decache(file);
+        decache(config.appRoot);
 
-        // watch
-        watcher.on('all', (event, file) => {
-          gulpUtil.log(`server reload, ${file} changed`);
-          decache(file);
-          decache(config.appRoot);
-
-          // reload
-          server.removeListener('request', currentApp);
-          currentApp = createApp();
-          server.on('request', currentApp);
-        });
+        // reload
+        server.removeListener('request', currentApp);
+        currentApp = createApp();
+        server.on('request', currentApp);
       });
-    }).catch((err) => {
-      gulpUtil.log(err);
     });
+  })
+  .catch((err) => {
+    gulpUtil.log(err);
   });
 });
 

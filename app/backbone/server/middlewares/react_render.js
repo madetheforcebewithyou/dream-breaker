@@ -16,7 +16,7 @@ function captureModules(moduleName) {
 }
 
 function prepareLoadable({
-  loadableFile, jsPublicPath, assets, ...otherConfig
+  loadableFilePath, publicResources, assets, ...otherConfig
 }) {
   let { routes } = otherConfig;
   routes = (
@@ -28,10 +28,11 @@ function prepareLoadable({
   );
 
   // eslint-disable-next-line import/no-dynamic-require
-  const bundles = getBundles(require(loadableFile), modules);
+  const bundles = getBundles(require(loadableFilePath), modules);
   const { javascripts, stylesheets } = assets;
 
   // TODO: code splitting for stylesheets
+  const jsPublicPath = _.at(publicResources, 'js.path')[0];
   _.forEach(bundles, (bundle) => {
     if (bundle.file.endsWith('.js')) {
       javascripts.push(`${jsPublicPath}${bundle.file}`);
@@ -83,15 +84,15 @@ function prepareRendering(renderConfig) {
   .then((tasks) => Promise.all(tasks));
 }
 
-export default ({ assets, devTool, loadableFile, jsPublicPath }) => (req, res) => {
+export default ({ assets, devTool, loadableFilePath, publicResources }) => (req, res) => {
   const renderConfig = {
     store: req.dreamBreaker.react.reduxStore,
     routes: req.dreamBreaker.react.routes,
     history: req.dreamBreaker.react.history,
     assets,
     devTool,
-    loadableFile,
-    jsPublicPath,
+    loadableFilePath,
+    publicResources,
   };
 
   // prepare rendering
