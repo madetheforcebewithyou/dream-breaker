@@ -11,18 +11,20 @@ import createApp from './create_app.js';
 
 gulpHelp(gulp);
 
-gulp.task('dev:start', false, () => {
-  Loadable.preloadAll()
-  // create server
-  .then(() => {
-    let currentApp = createApp();
+function createServer() {
+  let currentApp = createApp();
 
+  return new Promise((resolve, reject) => {
     const server = http.createServer(currentApp).listen(config.port, (err) => {
       if (err) {
-        throw err;
+        reject(err);
+        return;
       }
 
       gulpUtil.log(`server listen on ${config.port}`);
+      resolve({ server, currentApp });
+
+      // setup watcher
       chokidar.watch([config.appRoot, config.loadableFilePath], {
         followSymlinks: false,
         alwaysStat: true,
@@ -43,7 +45,14 @@ gulp.task('dev:start', false, () => {
         server.on('request', currentApp);
       });
     });
-  })
+  });
+}
+
+gulp.task('dev:start', false, () => {
+  Loadable.preloadAll()
+  // create server
+  .then(() => createServer())
+  // error handling
   .catch((err) => {
     gulpUtil.log(err);
   });
