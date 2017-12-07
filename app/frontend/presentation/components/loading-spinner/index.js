@@ -5,7 +5,7 @@ import './styles/main.scss';
 
 @genId('db-loading-spinner')
 @shouldComponentUpdate
-export default class Button extends React.Component {
+export default class LoadingSpinner extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     size: PropTypes.number,
@@ -32,6 +32,14 @@ export default class Button extends React.Component {
             top: `calc( 50% - ${size / 2}px )`,
           }}
         >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 0 0"
+            to="360 0 0"
+            dur={5}
+            repeatCount="indefinite"
+          />
           <circle
             styleName="db-background-circle"
             cx={50}
