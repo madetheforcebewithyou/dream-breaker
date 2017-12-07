@@ -53,7 +53,7 @@ function renderComponentToHtml({
 }
 
 function prepareRendering(renderConfig) {
-  const { sagaRunnings, store, routes } = renderConfig;
+  const { reduxMgr, routes } = renderConfig;
   const modules = [];
 
   return Promise.resolve()
@@ -70,8 +70,8 @@ function prepareRendering(renderConfig) {
     let tasks;
     try {
       renderComponentToHtml({ ...renderConfig, routes: contents });
-      tasks = _.map(sagaRunnings, (task) => task.done);
-      store.sagaEnd();
+      tasks = _.map(reduxMgr.getRunningSagas(), (task) => task.done);
+      reduxMgr.terminateSaga();
     } catch (err) {
       throw err;
     }
@@ -83,10 +83,12 @@ function prepareRendering(renderConfig) {
 }
 
 export default ({ assets, devTool, loadableFilePath, publicResources }) => (req, res) => {
+  const reduxMgr = req.dreamBreaker.react.reduxMgr;
   const renderConfig = {
-    store: req.dreamBreaker.react.reduxStore,
+    store: reduxMgr.getStore(),
     routes: req.dreamBreaker.react.routes,
     history: req.dreamBreaker.react.history,
+    reduxMgr,
     assets,
     devTool,
     loadableFilePath,
@@ -100,7 +102,7 @@ export default ({ assets, devTool, loadableFilePath, publicResources }) => (req,
   .then((modules) => {
     const newAssets = getLoadableBundles({ ...renderConfig, modules });
     const html = renderComponentToHtml({ ...renderConfig, assets: newAssets });
-    const router = renderConfig.store.getState().router;
+    const router = reduxMgr.getStore().getState().router;
 
     // handle redirect
     const originalUrl = req.url;

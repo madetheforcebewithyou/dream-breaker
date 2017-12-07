@@ -13,6 +13,8 @@ const _history = Symbol();
 const _render = Symbol();
 const _config = Symbol();
 const _hasDevTool = Symbol();
+const _reloadRedux = Symbol();
+const _reloadRoutes = Symbol();
 
 export default class DreamBreakerClient {
   constructor(config = {}) {
@@ -75,19 +77,31 @@ export default class DreamBreakerClient {
     }
   }
 
+  [_reloadRedux](redux = {}) {
+    const { rootReducer, rootSaga } = redux;
+    if (rootReducer) {
+      this[_reduxMgr].replaceReducer({ rootReducer });
+    }
+
+    if (rootSaga) {
+      this[_reduxMgr].replaceSaga({ rootSaga });
+    }
+  }
+
+  [_reloadRoutes](routes) {
+    if (routes) {
+      this[_render](routes);
+    }
+  }
+
   hot(config = {}) {
     const { routes, redux } = config;
 
     // reload redux
-    if (redux) {
-      const { rootReducer } = redux;
-      this[_reduxMgr].replaceReducer({ rootReducer });
-    }
+    this[_reloadRedux](redux);
 
     // reload routes
-    if (routes) {
-      this[_render](routes);
-    }
+    this[_reloadRoutes](routes);
   }
 
   launch() {

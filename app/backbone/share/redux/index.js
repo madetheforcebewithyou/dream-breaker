@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
-import createSagaMiddleware, { END } from 'redux-saga';
 import { DevTool } from './../components';
+import SagaRegistry from './saga_registry.js';
 
 const _config = Symbol();
+const _sagaRegistry = Symbol();
 const _store = Symbol();
 const _configureStore = Symbol();
 const _normalizeMiddlewares = Symbol();
@@ -12,6 +13,7 @@ const _normalizeReducers = Symbol();
 export default class ReduxManager {
   constructor(config = {}) {
     this[_config] = config;
+    this[_sagaRegistry] = new SagaRegistry();
   }
 
   [_normalizeReducers]({ rootReducer }) {
@@ -40,11 +42,10 @@ export default class ReduxManager {
       devTool,
     } = this[_config];
 
-    const sagaMiddleware = createSagaMiddleware();
     const allReducers = this[_normalizeReducers]({ rootReducer });
     const allMiddlewares = [
       ...rootMiddleware,
-      sagaMiddleware,
+      this[_sagaRegistry].getMiddleware(),
       routerMiddleware(history),
     ];
 
@@ -54,12 +55,9 @@ export default class ReduxManager {
       initialState,
       this[_normalizeMiddlewares]({ middlewares: allMiddlewares, devTool }),
     );
-    store.sagaEnd = () => store.dispatch(END);
 
-    // run sagas
-    store.sagaRunnings = [
-      sagaMiddleware.run(rootSaga),
-    ];
+    // run saga
+    this[_sagaRegistry].run(rootSaga);
 
     return store;
   }
@@ -72,7 +70,19 @@ export default class ReduxManager {
     return this[_store];
   }
 
+  getRunningSagas() {
+    return this[_sagaRegistry].getRunningSagas();
+  }
+
+  terminateSaga() {
+    return this[_sagaRegistry].terminateSaga({ dispatch: this.getStore().dispatch });
+  }
+
+  replaceSaga({ rootSaga }) {
+    this[_sagaRegistry].reload({ rootSaga, dispatch: this.getStore().dispatch });
+  }
+
   replaceReducer({ rootReducer }) {
-    this.store.replaceReducer(this[_normalizeReducers]({ rootReducer }));
+    this.getStore().replaceReducer(this[_normalizeReducers]({ rootReducer }));
   }
 }
