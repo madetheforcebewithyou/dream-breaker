@@ -29,19 +29,19 @@ function getLoadableBundles({
 }
 
 function renderComponentToHtml({
-  store, routes, history, assets, devTool,
+  reduxMgr, routes, history, assets, devTool,
 }) {
   const devToolComponent = devTool ? (
-    <Provider store={store}>
+    <Provider store={reduxMgr.getStore()}>
       <DevTool />
     </Provider>
   ) : null;
 
   return renderToStaticMarkup(
-    <Provider store={store}>
+    <Provider store={reduxMgr.getStore()}>
       <ConnectedRouter history={history}>
         <Html
-          initialState={store.getState()}
+          initialState={reduxMgr.getStore().getState()}
           head={Helmet.rewind()}
           assets={assets}
           content={routes}
@@ -56,8 +56,7 @@ function prepareRendering(renderConfig) {
   const { reduxMgr, routes } = renderConfig;
   const modules = [];
 
-  return Promise.resolve()
-  .then(() => (
+  return Promise.resolve((
     <Loadable.Capture
       report={(moduleName) => {
         modules.push(moduleName);
@@ -85,7 +84,6 @@ function prepareRendering(renderConfig) {
 export default ({ assets, devTool, loadableFilePath, publicResources }) => (req, res) => {
   const reduxMgr = req.dreamBreaker.react.reduxMgr;
   const renderConfig = {
-    store: reduxMgr.getStore(),
     routes: req.dreamBreaker.react.routes,
     history: req.dreamBreaker.react.history,
     reduxMgr,
@@ -97,7 +95,6 @@ export default ({ assets, devTool, loadableFilePath, publicResources }) => (req,
 
   // prepare rendering
   prepareRendering(renderConfig)
-
   // do rendering
   .then((modules) => {
     const newAssets = getLoadableBundles({ ...renderConfig, modules });
@@ -115,7 +112,6 @@ export default ({ assets, devTool, loadableFilePath, publicResources }) => (req,
     // send html to the client
     res.send(`<!DOCTYPE html>${html}`);
   })
-
   // handle error
   .catch((err) => {
     const message = _.at(err, 'message')[0];
