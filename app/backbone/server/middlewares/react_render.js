@@ -15,7 +15,7 @@ function getLoadableBundles({
 }) {
   // eslint-disable-next-line import/no-dynamic-require
   const bundles = getBundles(require(loadableFilePath), modules);
-  const javascripts = [];
+  let javascripts = [];
 
   // TODO: code splitting for stylesheets
   const { publicPath } = publicResources;
@@ -24,8 +24,9 @@ function getLoadableBundles({
       javascripts.push(path.join(publicPath, bundle.file));
     }
   });
+  javascripts = _.concat(assets.javascripts, javascripts);
 
-  return _.merge({}, assets, { javascripts });
+  return { ...assets, javascripts };
 }
 
 function renderComponentToHtml({
