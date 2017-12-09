@@ -7,6 +7,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { createBrowserHistory, createHashHistory } from 'history';
 import { DevTool } from './../share/components';
 import ReduxManager from './../share/redux';
+import systemReducer from './system-reducer';
 
 const _reduxMgr = Symbol();
 const _history = Symbol();
@@ -34,6 +35,7 @@ export default class DreamBreakerClient {
       initialState: window.__INITIAL_STATE__,
       history: clientHistory,
       devTool: this[_hasDevTool](),
+      systemReducer,
       rootMiddleware,
       rootReducer,
       rootSaga,

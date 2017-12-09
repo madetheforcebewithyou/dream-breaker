@@ -17,8 +17,11 @@ export default class ReduxManager {
   }
 
   [_normalizeReducers]({ rootReducer }) {
+    const { systemReducer } = this[_config];
+
     return combineReducers({
       ...rootReducer,
+      system: systemReducer,
       router: routerReducer,
     });
   }

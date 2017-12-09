@@ -7,8 +7,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import Loadable from 'react-loadable';
 import path from 'path';
 import { getBundles } from 'react-loadable/webpack';
-import { logger } from './../../lib/server';
-import { Html, DevTool } from './../../share/components';
+import { logger } from './../../../lib/server';
+import { Html, DevTool } from './../../../share/components';
 
 function getLoadableBundles({
   loadableFilePath, publicResources, assets, modules,

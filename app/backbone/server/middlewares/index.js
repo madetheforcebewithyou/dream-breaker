@@ -1,3 +1,3 @@
-export reactReduxMiddleware from './react_redux.js';
-export reactRouteMiddleware from './react_route.js';
-export reactRenderMiddleware from './react_render.js';
+export reactReduxMiddleware from './react-redux';
+export reactRouteMiddleware from './react-route';
+export reactRenderMiddleware from './react-render';

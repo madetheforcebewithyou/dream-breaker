@@ -1,5 +1,6 @@
 import { createMemoryHistory } from 'history';
-import ReduxManager from './../../share/redux';
+import ReduxManager from './../../../share/redux';
+import systemReducer from './system-reducer';
 
 export default ({
   initialState,
@@ -10,6 +11,7 @@ export default ({
 }) => (req, res, next) => {
   const history = createMemoryHistory({ initialEntries: [req.path] });
   const reduxMgr = new ReduxManager({
+    systemReducer: systemReducer(req),
     initialState,
     rootMiddleware,
     rootReducer,
