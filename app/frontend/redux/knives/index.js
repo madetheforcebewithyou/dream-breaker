@@ -1,4 +1,4 @@
-import { ReduxKnifeManager } from './../../../backbone/helper';
+import { ReduxKnifeManager } from './../../../backbone/lib/client';
 
 // config
 import test1Config from './test1.js';

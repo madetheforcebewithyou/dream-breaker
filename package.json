@@ -113,6 +113,7 @@
     "webpack-hot-middleware": "^2.21.0"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.2",
     "colors": "^1.1.2",
