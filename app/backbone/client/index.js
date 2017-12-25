@@ -42,7 +42,6 @@ export default class DreamBreakerClient {
     });
 
     // setup history
-    // FIXME: How to sync with the store?
     this[_history] = clientHistory;
   }
 

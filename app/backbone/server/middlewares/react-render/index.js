@@ -3,7 +3,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import { renderToStaticMarkup } from 'react-dom/server';
+import { renderToStaticNodeStream } from 'react-dom/server';
 import Loadable from 'react-loadable';
 import path from 'path';
 import { getBundles } from 'react-loadable/webpack';
@@ -29,7 +29,7 @@ function getLoadableBundles({
   return { ...assets, javascripts };
 }
 
-function renderComponentToHtml({
+function renderComponentToNodeStream({
   reduxMgr, routes, history, assets, devTool,
 }) {
   const devToolComponent = devTool ? (
@@ -38,7 +38,7 @@ function renderComponentToHtml({
     </Provider>
   ) : null;
 
-  return renderToStaticMarkup(
+  const reactStream = renderToStaticNodeStream(
     <Provider store={reduxMgr.getStore()}>
       <ConnectedRouter history={history}>
         <Html
@@ -51,6 +51,16 @@ function renderComponentToHtml({
       </ConnectedRouter>
     </Provider>,
   );
+
+  return new Promise((resolve, reject) => {
+    reactStream
+      .on('readable', () => {
+        resolve(reactStream);
+      })
+      .on('error', (err) => {
+        reject(err);
+      });
+  });
 }
 
 function prepareRendering(renderConfig) {
@@ -66,15 +76,10 @@ function prepareRendering(renderConfig) {
       {routes}
     </Loadable.Capture>
   ))
-  .then((contents) => {
-    let tasks;
-    try {
-      renderComponentToHtml({ ...renderConfig, routes: contents });
-      tasks = _.map(reduxMgr.getRunningSagas(), (task) => task.done);
-      reduxMgr.terminateSaga();
-    } catch (err) {
-      throw err;
-    }
+  .then((contents) => renderComponentToNodeStream({ ...renderConfig, routes: contents }))
+  .then(() => {
+    const tasks = _.map(reduxMgr.getRunningSagas(), (task) => task.done);
+    reduxMgr.terminateSaga();
 
     return tasks;
   })
@@ -99,7 +104,10 @@ export default ({ assets, devTool, loadableFilePath, publicResources }) => (req,
   // do rendering
   .then((modules) => {
     const newAssets = getLoadableBundles({ ...renderConfig, modules });
-    const html = renderComponentToHtml({ ...renderConfig, assets: newAssets });
+    return renderComponentToNodeStream({ ...renderConfig, assets: newAssets });
+  })
+  // send response
+  .then((reactStream) => {
     const router = reduxMgr.getStore().getState().router;
 
     // handle redirect
@@ -107,11 +115,25 @@ export default ({ assets, devTool, loadableFilePath, publicResources }) => (req,
     const newRedirectUrl = `${router.location.pathname}${router.location.search}`;
     if (!_.isEqual(originalUrl, newRedirectUrl)) {
       res.redirect(newRedirectUrl);
-      return;
+      return Promise.resolve();
     }
 
     // send html to the client
-    res.send(`<!DOCTYPE html>${html}`);
+    return new Promise((resolve, reject) => {
+      res.set('Content-Type', 'text/html');
+      res.write('<!DOCTYPE html>');
+
+      // pipe stream
+      reactStream.pipe(res, { end: false });
+      reactStream
+        .on('error', (err) => {
+          reject(err);
+        })
+        .on('end', () => {
+          res.end();
+          resolve();
+        });
+    });
   })
   // handle error
   .catch((err) => {
