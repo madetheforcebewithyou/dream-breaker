@@ -1,8 +1,7 @@
 import gulpUtil from 'gulp-util';
 import config from './config.js';
-import hmrMiddleware from './hmr_middleware.js';
 
-export default function createApp() {
+export default function createApp(hmrMiddleware) {
   let app = () => {};
 
   try {

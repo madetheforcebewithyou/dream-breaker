@@ -8,11 +8,13 @@ import chokidar from 'chokidar';
 import Loadable from 'react-loadable';
 import config from './config.js';
 import createApp from './create_app.js';
+import createHmrMiddleware from './hmr_middleware.js';
 
 gulpHelp(gulp);
 
 function createServer() {
-  let currentApp = createApp();
+  const hmrMiddleware = createHmrMiddleware();
+  let currentApp = createApp(hmrMiddleware);
 
   return new Promise((resolve, reject) => {
     const server = http.createServer(currentApp).listen(config.port, (err) => {
@@ -41,7 +43,7 @@ function createServer() {
 
         // reload
         server.removeListener('request', currentApp);
-        currentApp = createApp();
+        currentApp = createApp(hmrMiddleware);
         server.on('request', currentApp);
       });
     });

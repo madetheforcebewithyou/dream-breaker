@@ -7,7 +7,7 @@ import LoadableTest from './a';
 import { knives } from './../redux/knives';
 
 const _interval = Symbol();
-@connect(() => {})
+@connect(() => ({}))
 class TestSagaHmr extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func,

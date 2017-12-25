@@ -3,7 +3,7 @@ import gulp from 'gulp';
 import gulpHelp from 'gulp-help';
 
 // tasks
-import './gulp-tasks/build.js';
+import './gulp-tasks/build';
 import './gulp-tasks/dev';
 
 gulpHelp(gulp);

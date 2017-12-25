@@ -4,6 +4,7 @@ import autoprefixer from 'autoprefixer';
 import webpack from 'webpack';
 import path from 'path';
 import config from './config.js';
+import { vendor, createResolveAlias } from './../shared';
 
 const extractLocal = new ExtractTextPlugin({
   filename: 'stylesheets/local.css',
@@ -25,8 +26,6 @@ const autoprefixerConfig = autoprefixer({
 
 const defineEnviroments = new webpack.EnvironmentPlugin([
   'NODE_ENV',
-  'DREAM_BREAKER_REDUX_DEV_TOOL',
-  'DREAM_BREAKER_FRONTEND_ENTRY_POINT',
 ]);
 
 const reactLoadable = new ReactLoadablePlugin({
@@ -34,6 +33,13 @@ const reactLoadable = new ReactLoadablePlugin({
 });
 
 export default {
+  resolve: {
+    modules: [
+      config.appRoot,
+      'node_modules',
+    ],
+    alias: createResolveAlias(vendor),
+  },
   entry: {
     app: [
       'babel-polyfill',
@@ -41,23 +47,13 @@ export default {
       'webpack/hot/dev-server',
       config.frontEndEntryPoint,
     ],
+    vendor,
   },
   cache: true,
   target: 'web',
   devtool: 'eval',
-  /*
-   resolve: {
-   modules: [
-   path.resolve(__dirname, './../../../../app'),
-   'node_modules',
-   ],
-   alias: {
-   react: path.resolve(__dirname, './../../../../node_modules', 'react'),
-   },
-   },
-   */
   output: {
-    publicPath: config.publicPath,
+    publicPath: '/public',
     filename: 'javascripts/[name].js',
     chunkFilename: 'javascripts/[name].js',
   },

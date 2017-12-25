@@ -58,14 +58,50 @@
         ]
       ]
     },
-    "production": {
+    "server_production": {
       "comments": false,
       "presets": [
         "react-optimize"
       ],
       "plugins": [
         "lodash",
-        "transform-remove-console"
+        "transform-remove-console",
+        "dynamic-import-node",
+        [
+          "react-css-modules",
+          {
+            "filetypes": {
+              ".scss": {
+                "syntax": "postcss-scss"
+              }
+            },
+            "generateScopedName": "[name]_[local]_[hash:base64:5]",
+            "webpackHotModuleReloading": true,
+            "removeImport": true
+          }
+        ]
+      ]
+    },
+    "client_production": {
+      "comments": false,
+      "presets": [
+        "react-optimize"
+      ],
+      "plugins": [
+        "lodash",
+        "transform-remove-console",
+        [
+          "react-css-modules",
+          {
+            "filetypes": {
+              ".scss": {
+                "syntax": "postcss-scss"
+              }
+            },
+            "generateScopedName": "[name]_[local]_[hash:base64:5]",
+            "webpackHotModuleReloading": true
+          }
+        ]
       ]
     }
   }

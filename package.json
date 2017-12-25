@@ -16,36 +16,44 @@
     "dev": "better-npm-run dev",
     "test": "better-npm-run test",
     "build": "better-npm-run build",
-    "storybook": "better-npm-run storybook"
+    "storybook": "better-npm-run storybook",
+    "start": "better-npm-run start"
   },
   "betterScripts": {
     "dev": {
       "command": "gulp dev",
       "env": {
-        "NODE_ENV": "server_development",
-        "DREAM_BREAKER_SERVER_PORT": 3000,
-        "DREAM_BREAKER_REDUX_DEV_TOOL": "true",
-        "DREAM_BREAKER_APP_ROOT": "app",
-        "DREAM_BREAKER_FRONTEND_ENTRY_POINT": "app/frontend/index.js",
-        "DREAM_BREAKER_PUBLIC_PATH": "/public/"
+        "NODE_ENV": "development",
+        "BABEL_ENV": "server_development",
+        "DREAM_BREAKER_SERVER_PORT": 3000
       }
     },
     "test": {
       "command": "nyc mocha",
       "env": {
-        "NODE_ENV": "test"
+        "NODE_ENV": "test",
+        "BABEL_ENV": "test"
       }
     },
     "build": {
       "command": "gulp build",
       "env": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "BABEL_ENV": "server_production"
       }
     },
     "storybook": {
       "command": "start-storybook -p 7777",
       "env": {
+        "DREAM_BREAKER_SERVER_PORT": 3000,
         "NODE_ENV": "development"
+      }
+    },
+    "start": {
+      "command": "node main.js",
+      "env": {
+        "DREAM_BREAKER_SERVER_PORT": 3000,
+        "NODE_ENV": "production"
       }
     }
   },
@@ -56,6 +64,7 @@
     "@storybook/addon-actions": "^3.2.16",
     "@storybook/addon-centered": "^3.2.16",
     "@storybook/react": "^3.2.16",
+    "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^7.1.6",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -82,6 +91,7 @@
     "chokidar": "^1.7.0",
     "decache": "^4.3.0",
     "del": "^3.0.0",
+    "duplicate-package-checker-webpack-plugin": "^2.0.2",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -94,6 +104,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-help": "^1.6.1",
+    "gulp-shell": "^0.6.3",
     "gulp-util": "^3.0.8",
     "mocha": "^3.5.0",
     "node-sass": "^4.7.2",
@@ -106,9 +117,9 @@
     "sass-loader": "^6.0.6",
     "sinon": "^3.1.0",
     "sinon-chai": "^2.12.0",
+    "uglifyjs-webpack-plugin": "^1.1.4",
     "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.9.1",
-    "webpack-chunk-hash": "^0.5.0",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0"
   },

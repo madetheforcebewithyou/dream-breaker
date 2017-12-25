@@ -6,6 +6,8 @@ yarn-error.log*
 /coverage
 /.idea
 /.nyc_output
+/artifacts/**/*
+!/artifacts/.gitkeep
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 /gulp-tasks/dev/loadable.json

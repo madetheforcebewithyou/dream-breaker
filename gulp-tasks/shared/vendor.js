@@ -1,0 +1,17 @@
+export default [
+  'babel-polyfill',
+  'core-js',
+  'react',
+  'react-dom',
+  'react-router',
+  'redux',
+  'react-redux',
+  'react-router-redux',
+  'react-router-dom',
+  'redux-saga',
+  'lodash',
+  'moment',
+  'debug',
+  'ms',
+  'uuid',
+];
