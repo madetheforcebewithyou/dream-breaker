@@ -141,7 +141,13 @@ export default {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      minChunks: Infinity,
+      minChunks: (module) => {
+        if (module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
+          return false;
+        }
+
+        return true;
+      },
     }),
     new DuplicatePackageCheckerPlugin({
       verbose: true,
