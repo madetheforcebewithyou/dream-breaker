@@ -136,7 +136,11 @@ export default {
           return false;
         }
 
-        return module.context && module.context.includes('/node_modules/');
+        if (!_.isArray(module.context)) {
+          return false;
+        }
+
+        return module.context.includes('/node_modules/');
       },
     }),
     new webpack.optimize.CommonsChunkPlugin({
@@ -146,7 +150,11 @@ export default {
           return false;
         }
 
-        return true;
+        if (!_.isArray(module.context)) {
+          return false;
+        }
+
+        return !module.context.includes('/node_modules/');
       },
     }),
     new DuplicatePackageCheckerPlugin({
