@@ -16,18 +16,11 @@ const {
 } = process.env;
 
 const extractLocal = new ExtractTextPlugin({
-  filename: 'stylesheets/local-[hash].css',
+  filename: 'stylesheets/local.[contenthash].css',
   allChunks: true,
 });
 
 const defineEnviroments = new webpack.EnvironmentPlugin(['NODE_ENV']);
-const loaderOptions = new webpack.LoaderOptionsPlugin({
-  options: {
-    minimize: true,
-    debug: false,
-  },
-});
-
 const autoprefixerConfig = autoprefixer({
   browsers: [
     'Android 2.3',
@@ -62,8 +55,8 @@ export default {
   output: {
     path: path.join(__dirname, './../../build/public'),
     publicPath: '/public/',
-    filename: 'javascripts/[name]-[hash].js',
-    chunkFilename: 'javascripts/[name]-[hash].js',
+    filename: 'javascripts/[name].[chunkHash].js',
+    chunkFilename: 'javascripts/[name].[chunkHash].js',
   },
   module: {
     rules: [
@@ -134,26 +127,21 @@ export default {
     reactLoadable,
     extractLocal,
     defineEnviroments,
-    loaderOptions,
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor'],
-      filename: 'javascripts/[name]-[hash].js',
+      name: 'vendor',
+      filename: 'javascripts/[name].[chunkHash].js',
       minChunks: (module) => {
         if (module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
           return false;
         }
 
-        if (!_.isString(module.context)) {
-          return false;
-        }
-
-        if (!_.includes(vendor, path.basename(module.context))) {
-          return false;
-        }
-
-        return true;
+        return module.context && module.context.includes('/node_modules/');
       },
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity,
     }),
     new DuplicatePackageCheckerPlugin({
       verbose: true,

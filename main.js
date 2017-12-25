@@ -11,6 +11,7 @@ const {
 const app = require('./build/index.js').default({
   assets: {
     javascripts: [
+      _.at(assetsJson, 'manifest.js')[0],
       _.at(assetsJson, 'vendor.js')[0],
       _.at(assetsJson, 'app.js')[0],
     ],
