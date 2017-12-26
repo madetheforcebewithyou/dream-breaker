@@ -53,7 +53,7 @@ export default {
   target: 'web',
   devtool: 'eval',
   output: {
-    publicPath: '/public',
+    publicPath: config.publicPath,
     filename: 'javascripts/[name].js',
     chunkFilename: 'javascripts/[name].js',
   },

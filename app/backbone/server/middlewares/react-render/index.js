@@ -3,7 +3,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import { renderToStaticNodeStream } from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import Loadable from 'react-loadable';
 import path from 'path';
 import { getBundles } from 'react-loadable/webpack';
@@ -38,7 +38,7 @@ function renderComponentToNodeStream({
     </Provider>
   ) : null;
 
-  const reactStream = renderToStaticNodeStream(
+  const reactStream = renderToNodeStream(
     <Provider store={reduxMgr.getStore()}>
       <ConnectedRouter history={history}>
         <Html
