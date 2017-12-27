@@ -4,7 +4,7 @@ import autoprefixer from 'autoprefixer';
 import webpack from 'webpack';
 import path from 'path';
 import config from './config.js';
-import { vendor, createResolveAlias } from './../shared';
+import { vendor, createResolveAlias } from './../lib';
 
 const extractLocal = new ExtractTextPlugin({
   filename: 'stylesheets/local.css',
