@@ -29,12 +29,13 @@ export default class Html extends React.Component {
   }
 
   get [_renderInitialState]() {
-    let state = null;
-    if (this.props.initialState) {
-      const innerHtml = `window.__INITIAL_STATE__ = ${serialize(this.props.initialState, { isJSON: true })}`;
-      state = <script dangerouslySetInnerHTML={{ __html: innerHtml }} />;
+    const { initialState } = this.props;
+    if (_.isNil(initialState)) {
+      return null;
     }
-    return state;
+
+    const innerHtml = `window.__INITIAL_STATE__ = ${serialize(initialState, { isJSON: true })}`;
+    return <script dangerouslySetInnerHTML={{ __html: innerHtml }} />;
   }
 
   get [_renderPolyfill]() {
