@@ -81,9 +81,8 @@ function prepareRendering(renderConfig) {
     const tasks = _.map(reduxMgr.getRunningSagas(), (task) => task.done);
     reduxMgr.terminateSaga();
 
-    return tasks;
+    return Promise.all(tasks);
   })
-  .then((tasks) => Promise.all(tasks))
   .then(() => (modules));
 }
 
